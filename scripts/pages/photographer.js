@@ -1,21 +1,59 @@
-//Mettre le code JavaScript lié à la page photographer.html
+// Fonction pour obtenir les données d'un photographe en fonction de son ID
+async function getPhotographerData(id) {
+    try {
+        const response = await fetch('data/photographers.json');
+        const data = await response.json();
+        // Trouver et retourner le photographe correspondant à l'ID
+        return data.photographers.find(photographer => photographer.id === parseInt(id));
+    } catch (error) {
+        console.error('Error fetching photographer data:', error);
+    }
+}
 
-function createPhotographerCard(photographer) {
-    // Extend the template and generate the elements
-    // Return the created DOM elements
-  }
-  
-  function displayPhotographers(photographers) {
-    const photographersList = document.getElementById('photographers-list');
-    photographers.forEach((photographer) => {
-      const photographerCard = createPhotographerCard(photographer);
-      photographersList.appendChild(photographerCard);
-    });
-  }
-  
-  // Fetch the data and display the photographers
-  fetch('data/photographers.json')
-    .then((response) => response.json())
-    .then((data) => displayPhotographers(data))
-    .catch((error) => console.error(error));
-  
+// Fonction pour afficher les données du photographe sur la page
+function displayPhotographerData(photographer) {
+    const detailsContainer = document.getElementById('photographer-details');
+    
+    // Vider le conteneur avant d'ajouter de nouveaux éléments
+    detailsContainer.innerHTML = '';
+
+    // Créer et ajouter les éléments avec les données du photographe
+    const nameElement = document.createElement('h2');
+    nameElement.textContent = photographer.name;
+
+    const cityElement = document.createElement('p');
+    cityElement.textContent = `${photographer.city}, ${photographer.country}`;
+
+    const taglineElement = document.createElement('p');
+    taglineElement.textContent = photographer.tagline;
+
+    const portraitElement = document.createElement('img');
+    portraitElement.setAttribute('src', `assets/photographers/${photographer.portrait}`);
+    portraitElement.setAttribute('alt', photographer.name);
+
+    // Ajouter les éléments au conteneur de détails
+    detailsContainer.appendChild(nameElement);
+    detailsContainer.appendChild(cityElement);
+    detailsContainer.appendChild(taglineElement);
+    detailsContainer.appendChild(portraitElement);
+}
+
+// Fonction d'initialisation pour charger les données au chargement de la page
+async function init() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const photographerId = urlParams.get('id');
+
+    if (photographerId) {
+        const photographerData = await getPhotographerData(photographerId);
+        if (photographerData) {
+            displayPhotographerData(photographerData);
+        } else {
+            console.error('Photographer not found');
+        }
+    } else {
+        console.error('No photographer ID found in URL');
+    }
+}
+
+// Appel de la fonction d'initialisation
+init();

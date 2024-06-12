@@ -1,27 +1,27 @@
-
-
-// scripts/templates/photographer.js
-
 function photographerTemplate(data) {
-    const { name, city, country, tagline, price, portrait } = data;
+    const { name, city, country, tagline, price, portrait, id } = data;
+    const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
 
-        // Créer un conteneur pour l'image et le titre
-        const imgTitleContainer = document.createElement('div');
-        imgTitleContainer.classList.add('img-title-container');
+        // Créer un lien pour l'image et le titre
+        const link = document.createElement('a');
+        link.setAttribute('href', `photographer.html?id=${id}`);
+        link.setAttribute('aria-label', name);
+        link.classList.add('photographer-link');
 
         const img = document.createElement('img');
-        img.setAttribute('src', `assets/photographers/${portrait}`);
-        img.setAttribute('alt', name);
+        img.setAttribute('src', picture);
+        img.setAttribute('alt', ""); // Texte alternatif vide pour accessibilité
+        img.classList.add('photographer-img');
 
         const h2 = document.createElement('h2');
         h2.textContent = name;
 
-        // Ajouter l'image et le titre dans le conteneur
-        imgTitleContainer.appendChild(img);
-        imgTitleContainer.appendChild(h2);
+        // Ajouter l'image et le titre dans le lien
+        link.appendChild(img);
+        link.appendChild(h2);
 
         // Créer un conteneur pour le texte
         const textContainer = document.createElement('div');
@@ -30,24 +30,23 @@ function photographerTemplate(data) {
         const location = document.createElement('p');
         location.textContent = `${city}, ${country}`;
 
-        const tag = document.createElement('p');
-        tag.textContent = tagline;
+        const taglineElement = document.createElement('p');
+        taglineElement.textContent = tagline;
 
         const pricing = document.createElement('p');
         pricing.textContent = `${price}€/jour`;
 
         // Ajouter le texte dans le conteneur
         textContainer.appendChild(location);
-        textContainer.appendChild(tag);
+        textContainer.appendChild(taglineElement);
         textContainer.appendChild(pricing);
 
-        // Ajouter les conteneurs dans l'article
-        article.appendChild(imgTitleContainer);
+        // Ajouter le lien et le conteneur de texte dans l'article
+        article.appendChild(link);
         article.appendChild(textContainer);
-        
 
         return article;
     }
 
-    return { getUserCardDOM };
+    return { name, picture, getUserCardDOM };
 }

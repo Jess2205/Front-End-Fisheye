@@ -2,6 +2,11 @@
     display: none;
 }
 
+img {
+    width: 200px;
+    height: 200px;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
