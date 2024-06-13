@@ -5,7 +5,10 @@
 img {
     width: 200px;
     height: 200px;
+    
 }
+
+
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -79,3 +82,4 @@ form input {
     border: none;
     border-radius: 5px;
 }
+

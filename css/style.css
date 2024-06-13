@@ -30,6 +30,8 @@ h1 {
     margin: 20px 100px;
 }
 
+
+
 .logo {
     height: 50px;
     width: 200px;
@@ -60,7 +62,7 @@ h1 {
 }
 
 
-.text-container .img-title-container {
+.text-container .img-title-container a {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,6 +79,7 @@ h1 {
 
 P {
     font-size: 10px;
+    margin: 0;
 }
 
 .img-title-container {
@@ -88,7 +91,9 @@ P {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 1.5em;
-    height: 47px;
+    height: 38px;
+    margin: 0;
+    
    
 }
 
