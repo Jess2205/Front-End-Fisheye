@@ -4,7 +4,10 @@ async function getPhotographerData(id) {
         const response = await fetch('data/photographers.json');
         const data = await response.json();
         // Trouver et retourner le photographe correspondant à l'ID
-        return data.photographers.find(photographer => photographer.id === parseInt(id));
+        return {
+            photographer: data.photographers.find(photographer => photographer.id === parseInt(id)),
+            media: data.media.filter(media => media.photographerId === parseInt(id))
+        };
     } catch (error) {
         console.error('Error fetching photographer data:', error);
     }
@@ -38,15 +41,27 @@ function displayPhotographerData(photographer) {
     detailsContainer.appendChild(portraitElement);
 }
 
+// Fonction pour afficher les médias du photographe sur la page
+function displayMediaData(mediaList) {
+    const mediaSection = document.querySelector('.media-section');
+    mediaSection.innerHTML = ''; // Vider la section des médias
+
+    mediaList.forEach(media => {
+        const mediaCard = mediaFactory(media);
+        mediaSection.appendChild(mediaCard.getMediaCardDOM());
+    });
+}
+
 // Fonction d'initialisation pour charger les données au chargement de la page
 async function init() {
     const urlParams = new URLSearchParams(window.location.search);
     const photographerId = urlParams.get('id');
 
     if (photographerId) {
-        const photographerData = await getPhotographerData(photographerId);
-        if (photographerData) {
-            displayPhotographerData(photographerData);
+        const { photographer, media } = await getPhotographerData(photographerId);
+        if (photographer) {
+            displayPhotographerData(photographer);
+            displayMediaData(media);
         } else {
             console.error('Photographer not found');
         }

@@ -14,7 +14,6 @@ async function getPhotographers() {
         return { photographers: [] }; // Retourner un tableau vide en cas d'erreur
     }
 
-    console.log('Photographer data:', photographer);
 }
 
 async function displayData(photographers) {

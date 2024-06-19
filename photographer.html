@@ -17,6 +17,19 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <section class="media-section">
+        <div class="sort-options">
+            <label for="sort">Trier par</label>
+            <select id="sort">
+                <option value="popularity">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
+        </div>
+        <div class="gallery" id="gallery">
+            <!-- Médias seront ajoutés ici -->
+        </div>
+    </section>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -26,14 +39,30 @@
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+            <label for="first-name">Prénom</label>
+            <input id="first-name" type="text" />
+        </div>
+        <div>
+            <label for="last-name">Nom</label>
+            <input id="last-name" type="text" />
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" />
+        </div>
+        <div>
+            <label for="message">Votre message</label>
+            <textarea id="message"></textarea>
+        </div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    
+    <footer>
+      <p id="total-likes">297 081 ♥</p>
+      <p id="daily-rate">300€ / jour</p>
+  </footer>
+    <script src="/scripts/templates/mediaFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

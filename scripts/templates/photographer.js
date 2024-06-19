@@ -48,5 +48,34 @@ function photographerTemplate(data) {
         return article;
     }
 
-    return { name, picture, getUserCardDOM };
+    function getPhotographerHeaderDOM() {
+        const header = document.createElement('div');
+        header.classList.add('photograph-header');
+
+        const h1 = document.createElement('h1');
+        h1.textContent = name;
+
+        const location = document.createElement('p');
+        location.textContent = `${city}, ${country}`;
+        location.classList.add('location');
+
+        const taglineElement = document.createElement('p');
+        taglineElement.textContent = tagline;
+        taglineElement.classList.add('tagline');
+
+        const pricing = document.createElement('p');
+        pricing.textContent = `${price}€/jour`;
+        pricing.classList.add('price');
+
+        header.appendChild(h1);
+        header.appendChild(location);
+        header.appendChild(taglineElement);
+        header.appendChild(pricing);
+
+        return header;
+    }
+
+    return { name, picture, getUserCardDOM, getPhotographerHeaderDOM };
 }
+
+
