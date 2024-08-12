@@ -52,30 +52,41 @@ function photographerTemplate(data) {
         const header = document.createElement('div');
         header.classList.add('photograph-header');
 
-        const h1 = document.createElement('h1');
-        h1.textContent = name;
+        const detailsSection = document.createElement('section');
+        detailsSection.setAttribute('id', 'photographer-details');
+
+        const infoContainer = document.createElement('div');
+        
+        const h2 = document.createElement('h2');
+        h2.textContent = name;
 
         const location = document.createElement('p');
         location.textContent = `${city}, ${country}`;
-        location.classList.add('location');
 
         const taglineElement = document.createElement('p');
         taglineElement.textContent = tagline;
-        taglineElement.classList.add('tagline');
 
-        const pricing = document.createElement('p');
-        pricing.textContent = `${price}€/jour`;
-        pricing.classList.add('price');
+        const img = document.createElement('img');
+        img.setAttribute('src', picture);
+        img.setAttribute('alt', name);
+        img.classList.add('photographer-img');
 
-        header.appendChild(h1);
-        header.appendChild(location);
-        header.appendChild(taglineElement);
-        header.appendChild(pricing);
+        infoContainer.appendChild(h2);
+        infoContainer.appendChild(location);
+        infoContainer.appendChild(taglineElement);
+
+        detailsSection.appendChild(infoContainer);
+        detailsSection.appendChild(img);
+
+        const contactButton = document.createElement('button');
+        contactButton.classList.add('contact_button');
+        contactButton.textContent = 'Contactez-moi';
+
+        header.appendChild(detailsSection);
+        header.appendChild(contactButton);
 
         return header;
     }
 
     return { name, picture, getUserCardDOM, getPhotographerHeaderDOM };
 }
-
-

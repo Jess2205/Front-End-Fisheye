@@ -6,12 +6,18 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
+    <script src="/scripts/templates/lightbox.js" defer></script><!-- Contient openLightbox -->
+    <script src="/scripts/templates/mediaFactory.js" defer></script><!-- Contient l'appel à openLightbox -->
+    <script src="/scripts/pages/photographer.js" defer></script>
+    <script src="/scripts/utils/contactForm.js" defer></script>
+
   </head>
+
   <body>
     <header>
       <a href="index.html" aria-label="Fisheye Home page">
       <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
-    </header>
+    </header></a>
     <main id="main">
       <section id="photographer-details"></section>
       <div class="photograph-header">
@@ -58,12 +64,16 @@
 				</form>
 			</div>
 		</div>
-    <footer>
-      <p id="total-likes">297 081 ♥</p>
-      <p id="daily-rate">300€ / jour</p>
-  </footer>
-    <script src="/scripts/templates/mediaFactory.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <div id="lightbox" class="lightbox hidden">
+      <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
+      <button class="lightbox-prev" aria-label="Média précédent">&#10094;</button>
+      <img class="lightbox-image" src="" alt="">
+      <video class="lightbox-video" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="lightbox-next" aria-label="Média suivant">&#10095;</button>
+    </div>
+    
   </body>
 </html>

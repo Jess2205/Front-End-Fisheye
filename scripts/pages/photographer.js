@@ -17,33 +17,43 @@ async function getPhotographerData(id) {
 function displayPhotographerData(photographer) {
     const detailsContainer = document.getElementById('photographer-details');
     
+    
     // Vider le conteneur avant d'ajouter de nouveaux éléments
     detailsContainer.innerHTML = '';
 
+    // Créer le conteneur pour les informations
+    const infoContainer = document.createElement('div');
+    infoContainer.classList.add('text-container'); // Ajouter la classe 'text-container'
+
     // Créer et ajouter les éléments avec les données du photographe
+    
     const nameElement = document.createElement('h2');
     nameElement.textContent = photographer.name;
 
     const cityElement = document.createElement('p');
     cityElement.textContent = `${photographer.city}, ${photographer.country}`;
 
-    const taglineElement = document.createElement('p');
+    const taglineElement = document.createElement('span');
     taglineElement.textContent = photographer.tagline;
 
+    
     const portraitElement = document.createElement('img');
     portraitElement.setAttribute('src', `assets/photographers/${photographer.portrait}`);
     portraitElement.setAttribute('alt', photographer.name);
 
+     // Ajouter les éléments au text container
+     infoContainer.appendChild(nameElement);
+     infoContainer.appendChild(cityElement);
+     infoContainer.appendChild(taglineElement);
+
     // Ajouter les éléments au conteneur de détails
-    detailsContainer.appendChild(nameElement);
-    detailsContainer.appendChild(cityElement);
-    detailsContainer.appendChild(taglineElement);
+    detailsContainer.appendChild(infoContainer);
     detailsContainer.appendChild(portraitElement);
 }
 
 // Fonction pour afficher les médias du photographe sur la page
 function displayMediaData(mediaList) {
-    const mediaSection = document.querySelector('.media-section');
+    const mediaSection = document.querySelector('.gallery');
     mediaSection.innerHTML = ''; // Vider la section des médias
 
     mediaList.forEach(media => {
@@ -51,6 +61,7 @@ function displayMediaData(mediaList) {
         mediaSection.appendChild(mediaCard.getMediaCardDOM());
     });
 }
+
 
 // Fonction d'initialisation pour charger les données au chargement de la page
 async function init() {
@@ -72,3 +83,4 @@ async function init() {
 
 // Appel de la fonction d'initialisation
 init();
+
