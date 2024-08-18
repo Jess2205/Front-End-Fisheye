@@ -61,7 +61,7 @@ function mediaFactory(media) {
 // Fonction pour mettre à jour le total des "j'aime"
 function updateTotalLikes() {
     const likeElements = document.querySelectorAll('.likes-count');
-    let totalLikes = 0;
+    let totalLikes = 297081;
 
     likeElements.forEach(likeElement => {
         totalLikes += parseInt(likeElement.textContent, 10);
