@@ -324,3 +324,25 @@ h2 {
 .like-button:focus {
     outline: none;
 }
+
+/* Styles de base pour le conteneur des likes */
+.total-likes-container {
+    background-color: #DB8876;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+   justify-content: end;
+    gap: 10px; /* Pour espacer le nombre de likes du prix */
+}
+
+.total-likes {
+    font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.price-per-day {
+    font-size: 18px;
+    color:#000000;
+}

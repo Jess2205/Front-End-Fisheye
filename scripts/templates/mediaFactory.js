@@ -1,30 +1,27 @@
+let currentMediaIndex = 0;
+let mediaItems = [];
+
 function mediaFactory(media) {
     const { id, photographerId, title, image, video, likes, date, price } = media;
+
+    // Création de l'élément media (image ou vidéo)
+    const mediaElement = document.createElement(image ? 'img' : 'video');
+    const mediaSrc = `assets/media/${image ? image : video}`;
+    
+    mediaElement.setAttribute('src', mediaSrc);
+    mediaElement.setAttribute('alt', title);
+    mediaElement.classList.add('media');
+
+    // Ajouter un attribut data-id pour faciliter l'identification du média
+    mediaElement.setAttribute('data-id', id);
+
+    // Lors de la création d'un média (image ou vidéo), ajouter un événement de clic pour ouvrir la lightbox
+    mediaElement.addEventListener('click', () => openLightbox(id));
+    console.log(`Media clicked: ${title} (ID: ${id})`);
 
     function getMediaCardDOM() {
         const article = document.createElement('article');
         article.classList.add('media-item');
-
-        // Création de l'élément media (image ou vidéo)
-        const mediaElement = document.createElement(image ? 'img' : 'video');
-        const mediaSrc = `assets/media/${image ? image : video}`;
-        
-        mediaElement.setAttribute('src', mediaSrc);
-        mediaElement.setAttribute('alt', title);
-        mediaElement.classList.add('media');
-
-        // Puis votre code pour mediaFactory.js
-function mediaFactory(media) {
-    const { id, title, image, video } = media;
-
-    
-
-    // Ajout d'un gestionnaire d'événement pour ouvrir la lightbox au clic
-    mediaElement.addEventListener('click', () => openLightbox(id));
-
-    return mediaElement;
-}
-
 
         // Création des éléments titre et likes
         const titleElement = document.createElement('h2');
@@ -44,6 +41,7 @@ function mediaFactory(media) {
         // Gestion du clic sur le bouton like
         likeButton.addEventListener('click', () => {
             likesElement.textContent = parseInt(likesElement.textContent) + 1;
+            updateTotalLikes();
         });
 
         likesContainer.appendChild(likesElement);
@@ -59,3 +57,76 @@ function mediaFactory(media) {
 
     return { getMediaCardDOM };
 }
+
+// Fonction pour mettre à jour le total des "j'aime"
+function updateTotalLikes() {
+    const likeElements = document.querySelectorAll('.likes-count');
+    let totalLikes = 0;
+
+    likeElements.forEach(likeElement => {
+        totalLikes += parseInt(likeElement.textContent, 10);
+    });
+
+    document.querySelector('.total-likes').textContent = totalLikes;
+}
+
+// Appeler la fonction pour initialiser le total des "j'aime" lors du chargement du DOM
+document.addEventListener('DOMContentLoaded', () => {
+    updateTotalLikes();
+});
+
+// Fonction pour ouvrir la lightbox avec le média sélectionné
+function openLightbox(mediaId) {
+    const lightbox = document.getElementById('lightbox');
+    const mediaItemsElements = document.querySelectorAll('.media-item img, .media-item video');
+    mediaItems = Array.from(mediaItemsElements); // Récupère tous les médias dans le DOM
+
+    currentMediaIndex = mediaItems.findIndex(item => item.getAttribute('data-id') == mediaId);
+
+    const mediaItem = mediaItems[currentMediaIndex];
+
+    if (!mediaItem) return;
+
+    // Remplir la lightbox avec le média sélectionné
+    if (mediaItem.tagName === 'IMG') {
+        document.querySelector('.lightbox-image').src = mediaItem.src;
+        document.querySelector('.lightbox-image').style.display = 'block';
+        document.querySelector('.lightbox-video').style.display = 'none';
+    } else if (mediaItem.tagName === 'VIDEO') {
+        document.querySelector('.lightbox-video source').src = mediaItem.src;
+        document.querySelector('.lightbox-video').load();
+        document.querySelector('.lightbox-image').style.display = 'none';
+        document.querySelector('.lightbox-video').style.display = 'block';
+    }
+
+    // Affichage de la lightbox
+    lightbox.classList.remove('hidden');
+    lightbox.style.opacity = '1';
+}
+
+// Fonction pour passer au média suivant
+function nextMedia() {
+    currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
+    openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+}
+
+// Fonction pour passer au média précédent
+function prevMedia() {
+    currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
+    openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+}
+
+// Attacher les événements pour les boutons "suivant" et "précédent"
+document.querySelector('.lightbox-next').addEventListener('click', () => {
+    if (mediaItems.length > 0) nextMedia();
+});
+document.querySelector('.lightbox-prev').addEventListener('click', () => {
+    if (mediaItems.length > 0) prevMedia();
+});
+
+// Ajout de la gestion de la fermeture de la lightbox 
+document.querySelector('.lightbox-close').addEventListener('click', () => {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.add('hidden');
+    lightbox.style.opacity = '0';
+});
