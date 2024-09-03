@@ -1,3 +1,5 @@
+
+
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     const overlay = document.querySelector('.modal_overlay'); // Ajout d'une référence à l'overlay

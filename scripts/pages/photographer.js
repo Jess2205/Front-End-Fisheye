@@ -1,3 +1,5 @@
+
+
 // Fonction pour obtenir les données d'un photographe en fonction de son ID
 async function getPhotographerData(id) {
     try {

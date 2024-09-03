@@ -1,3 +1,5 @@
+ 
+ 
  // scripts/pages/index.js
 
 async function getPhotographers() {

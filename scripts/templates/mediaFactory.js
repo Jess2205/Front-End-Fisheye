@@ -1,3 +1,5 @@
+
+
 function getPhotographerIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
@@ -59,7 +61,7 @@ let currentMediaIndex = 0;
 let mediaItems = [];
 
 function mediaFactory(media) {
-    const { id, photographerId, title, image, video, likes, date, price } = media;
+    const { id, title, image, video, likes } = media;
 
     // Création de l'élément media (image ou vidéo)
     const mediaElement = document.createElement(image ? 'img' : 'video');
