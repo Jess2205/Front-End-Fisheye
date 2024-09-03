@@ -16,10 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Erreur lors du chargement des données:', error));
 });
 
-function getPhotographerIdFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
-}
+
 
 function displayMedia(mediaArray) {
     const gallery = document.getElementById('gallery');
