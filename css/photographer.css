@@ -2,34 +2,37 @@ body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
+   
 }
 
 header {
-   
-    padding: 1rem;
+    margin-bottom: 0;
+    
     text-align: center;    
 }
 
 .logo {
-    width: 150px;
+    width: 100px; 
 }
 
 main {
     padding: 2rem;
+    padding-top: 0;
 }
 
 img {
-    width: 300px;
+    width: 350px;
     height: 300px;
-    padding-right: 10px;
+    
 }
 
 .photograph-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
-    height: 50px;
+  
+    height: 30px;
+    
     
 }
 
@@ -46,7 +49,8 @@ img {
     padding-right: 20px;
     border-bottom: 2px solid #e6e6e6;
     text-align: center;
-    padding-bottom: 30px;
+    width: 1250px;
+   
    
 }
 
@@ -55,6 +59,7 @@ img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;  
+    margin: 0;
 }
 
 a {
@@ -74,6 +79,7 @@ a {
     font-size: 24px;
     color: #901C1C;
     margin: 5px 0;
+    align-items: center;
 }
 
 #photographer-details span {
@@ -86,10 +92,13 @@ a {
 
 #photographer-details img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-top: 20px;
+    width: 200px;
+    height: 120px;
+    object-fit:cover;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 
@@ -116,9 +125,9 @@ a {
     transition: background-color 0.3s ease;
     margin-top: 0px;
     position: relative;
-    bottom: 100px;
+    bottom: 70px;
     width: 170px;
-    height: 69px;
+    height: 59px;
     font-size:20px ;
 }
 
@@ -126,14 +135,11 @@ a {
     background-color: #c94c4c;
 }
 
-.media-section {
-    margin-top: 2rem;
-}
 
 .sort-options {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    
     color: #000000;
     font-weight: 700;
     font-size: 18px;
@@ -157,9 +163,11 @@ a {
 
 .media {
     width: 350px;
-    height: 351px;
+    height: 300px;
+    gap: 10px;
+    padding-left: 18px;
+   object-fit: cover;
    
-    padding: 1rem;
     border-radius: 0.5rem;
 }
 
@@ -168,9 +176,16 @@ a {
     border-radius: 0.5rem;
 }
 
+.media-item {
+    height: 320px;
+}
+
 article {
     width: 30%;
     justify-content:flex-start;
+   
+   
+     
 }
 
 h2 {
@@ -179,6 +194,7 @@ h2 {
   color: #901C1C;
   size: 24px;
   font-weight: 400;
+ 
    }
    
 
@@ -205,8 +221,11 @@ h2 {
     background:#DB8876;
     padding: 2rem;
     border-radius: 0.5rem;
-    width: 300px;
+    width: 500px;
+    height: 600px;
     padding-top: 0;
+    position: relative;
+    left: 30%;
    
     
 }
@@ -288,8 +307,9 @@ h2 {
   
   .lightbox img,
   .lightbox video {
-    max-width: 80%;
-    max-height: 80%;
+    width: 1050px;
+    height: 900px;
+    object-fit:contain;
   }
   
   .lightbox-close,
@@ -327,14 +347,18 @@ h2 {
   /* Conteneur pour les likes */
 .likes-container {
     display: flex;
-    align-items:center;
+    justify-content: end;
+    align-items:end;
     margin-top: 10px;
+    margin-right: 70px;
+    position: relative;
+    bottom: 45px;
 }
 
 /* Compteur de likes */
 .likes-count {
     font-size: 1.1em;
-    margin-right: 10px;
+   
     color:#901C1C;
     padding-left: 20px;
 }
@@ -360,8 +384,14 @@ h2 {
 
 /* Styles de base pour le conteneur des likes */
 .total-likes-container {
+    position: relative;
+    bottom: 1030px;
+    left: 500px;
     background-color: #DB8876;
-    padding: 10px 20px;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-bottom: 5px;
+   padding-top: 5px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -370,12 +400,14 @@ h2 {
 }
 
 .total-likes {
-    font-size: 24px;
+    font-size: 18px;
     color: #000000;
     font-weight: bold;
+    
+    
 }
 
 .price-per-day {
-    font-size: 18px;
+    font-size: 16px;
     color:#000000;
 }

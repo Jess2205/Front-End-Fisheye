@@ -63,6 +63,8 @@ function displayMediaData(mediaList) {
 }
 
 
+
+
 // Fonction d'initialisation pour charger les données au chargement de la page
 async function init() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -83,6 +85,5 @@ async function init() {
 
 // Appel de la fonction d'initialisation
 init();
-
 
 

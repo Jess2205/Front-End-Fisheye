@@ -1,3 +1,63 @@
+function getPhotographerIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const photographerId = getPhotographerIdFromUrl(); // Récupère l'ID du photographe depuis l'URL
+
+    fetch('data/photographers.json')
+        .then(response => response.json())
+        .then(data => {
+            const mediaArray = data.media.filter(media => media.photographerId == photographerId);
+            displayMedia(mediaArray);
+            initSort(mediaArray);  // Initialise le tri au chargement
+        })
+        .catch(error => console.error('Erreur lors du chargement des données:', error));
+});
+
+function getPhotographerIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+}
+
+function displayMedia(mediaArray) {
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = ''; // Efface tout contenu existant
+
+    mediaArray.forEach(media => {
+        const mediaModel = mediaFactory(media);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
+        gallery.appendChild(mediaCardDOM);
+    });
+
+    // Mise à jour du total des "j'aime" après affichage
+    updateTotalLikes();
+}
+
+function initSort(mediaArray) {
+    document.getElementById('sort').addEventListener('change', function() {
+        const sortBy = this.value;
+
+        switch(sortBy) {
+            case 'date':
+                mediaArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+                break;
+            case 'popularity':
+                mediaArray.sort((a, b) => b.likes - a.likes);
+                break;
+            case 'title':
+                mediaArray.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+        }
+
+        // Réaffiche les médias triés
+        displayMedia(mediaArray);
+    });
+}
+
+// Les fonctions `mediaFactory`, `updateTotalLikes`, `openLightbox`, etc. restent les mêmes
+
 let currentMediaIndex = 0;
 let mediaItems = [];
 
@@ -17,7 +77,6 @@ function mediaFactory(media) {
 
     // Lors de la création d'un média (image ou vidéo), ajouter un événement de clic pour ouvrir la lightbox
     mediaElement.addEventListener('click', () => openLightbox(id));
-    console.log(`Media clicked: ${title} (ID: ${id})`);
 
     function getMediaCardDOM() {
         const article = document.createElement('article');
@@ -61,7 +120,7 @@ function mediaFactory(media) {
 // Fonction pour mettre à jour le total des "j'aime"
 function updateTotalLikes() {
     const likeElements = document.querySelectorAll('.likes-count');
-    let totalLikes = 297081;
+    let totalLikes = 0; // Replacez par la valeur initiale si nécessaire
 
     likeElements.forEach(likeElement => {
         totalLikes += parseInt(likeElement.textContent, 10);
