@@ -1,4 +1,8 @@
 {
+	"scripts": {
+   "dev": "http-server",
+   "lint": "eslint *.js"
+  },
 	"photographers": [
 		{
 			"name": "Mimi Keel",
