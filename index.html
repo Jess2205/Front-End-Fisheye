@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+    <!-- Meta charset pour définir l'encodage des caractères -->
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <title>Fisheye</title>
-  </head>
-  <body>
+
+    <!-- Lien vers le fichier CSS pour le style de la page -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icône de la page affichée dans l'onglet du navigateur -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Lien vers la police Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- En-tête de la page -->
     <header>
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
+        <!-- Logo de l'application avec un texte alternatif descriptif -->
+        <img src="assets/images/logo.png" class="logo" alt="Logo de Fisheye" />
+
+        <!-- Titre principal de la page -->
         <h1>Nos photographes</h1>
     </header>
+
+    <!-- Section principale de la page -->
     <main id="main" role="main">
-        <div class="photographer_section" aria-label="liste des photographes"></div>
+        <!-- Conteneur pour la liste des photographes -->
+        <div class="photographer_section" aria-label="Liste des photographes"></div>
     </main>
-    <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/pages/index.js"></script>
-  </body>
+
+    <!-- Scripts nécessaires pour le fonctionnement de la page -->
+    <script src="scripts/templates/photographer.js" defer></script>
+    <script src="scripts/pages/index.js" defer></script>
+</body>
 </html>
