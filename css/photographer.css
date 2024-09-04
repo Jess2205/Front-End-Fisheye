@@ -198,12 +198,12 @@ h2 {
 
 .modal {
     background: #DB8876;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 0.5rem;
     width: 400px;
     height: 600px;
     position: relative;
-    right: 2%;
+    padding-top: 0;  
 }
 
 .modal h2 {
@@ -215,6 +215,7 @@ h2 {
 
 .modal span {
     display: flex;
+    font-size: 28px;
 }
 
 .modal header {
@@ -231,7 +232,7 @@ h2 {
 
 .modal form input,
 .modal form textarea {
-    width: 95%;
+    width: 92%;
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
