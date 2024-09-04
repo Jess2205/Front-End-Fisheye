@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<head>
+    <!-- Définition du jeu de caractères utilisé pour le document -->
     <meta charset="utf-8">
+
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>Fisheye - Photographe</title>
+
+    <!-- Lien vers le fichier CSS pour le style de la page -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Icône de la page affichée dans l'onglet du navigateur -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Lien vers la police Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+
+    <!-- Scripts nécessaires pour le fonctionnement de la page -->
     <script src="/scripts/templates/mediaFactory.js" defer></script>
     <script src="/scripts/templates/photographer.js" defer></script>
     <script src="/scripts/pages/photographer.js" defer></script>
     <script src="/scripts/utils/contactForm.js" defer></script>
-    
-  </head>
+</head>
 
-  <body>
+<body>
+    <!-- En-tête de la page avec le logo et le lien vers la page d'accueil -->
     <header>
-      <a href="index.html" aria-label="Fisheye Home page">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
-      </a>
+        <a href="index.html" aria-label="Retour à la page d'accueil de Fisheye">
+            <img src="assets/images/logo.png" class="logo" alt="Logo Fisheye" />
+        </a>
     </header>
-    <main id="main">
-      <section id="photographer-details"></section>
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-      <section class="media-section">
-        <div class="sort-options">
-            <label for="sort">Trier par</label>
-            <select id="sort">
-                <option value="popularity">Popularité</option>
-                <option value="date">Date</option>
-                <option value="title">Titre</option>
-            </select>
+
+    <!-- Section principale de la page -->
+    <main id="main" role="main">
+        <!-- Section pour les détails du photographe -->
+        <section id="photographer-details" aria-labelledby="photographer-details-title">
+            <h2 id="photographer-details-title"></h2>
+        </section>
+
+        <!-- Section pour l'en-tête du photographe avec le bouton de contact -->
+        <div class="photograph-header">
+            <button class="contact_button" onclick="displayModal()" aria-label="Contactez le photographe">Contactez-moi</button>
         </div>
-        <div class="gallery" id="gallery">
-          
-            <!-- Médias seront ajoutés ici -->
-        </div>
-    </section>
+
+        <!-- Section pour les médias du photographe avec options de tri -->
+        <section class="media-section">
+            <div class="sort-options">
+                <label for="sort">Trier par :</label>
+                <select id="sort" aria-label="Options de tri des médias">
+                    <option value="popularity">Popularité</option>
+                    <option value="date">Date</option>
+                    <option value="title">Titre</option>
+                </select>
+            </div>
+            <div class="gallery" id="gallery">
+                <!-- Les médias seront ajoutés ici dynamiquement -->
+            </div>
+        </section>
     </main>
-   
-    <!-- Modale -->
+
+    <!-- Modale pour le formulaire de contact -->
     <div id="contact_modal" class="modal-container" aria-hidden="true">
         <div class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
             <header>
@@ -50,42 +69,64 @@
                 </button>
             </header>
             <form id="contact-form" aria-describedby="modal-description">
-                <label for="first-name">Prénom</label>
-                <input type="text" id="first-name"  name="first-name" autocomplete="given-name" required>
-                
-                <label for="last-name">Nom</label>
+                <label for="first-name">Prénom :</label>
+                <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+
+                <label for="last-name">Nom :</label>
                 <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
-                
-                <label for="email">Email</label>
+
+                <label for="email">Email :</label>
                 <input type="email" id="email" name="email" autocomplete="off" required>
-                
-                <label for="message">Votre Message</label>
+
+                <label for="message">Votre message :</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-                
+
                 <button type="submit">Envoyer</button>
             </form>
         </div>
         <div class="modal_overlay" aria-hidden="true"></div>
     </div>
 
-      </div>
-  </div>  
-    <div id="lightbox" class="lightbox hidden">
-      <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
-      <button class="lightbox-prev" aria-label="Média précédent">&#10094;</button>
-      <img class="lightbox-image" src="" alt="">
-      <video class="lightbox-video" controls>
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <h2 class="lightbox-title"></h2> <!-- Ajoutez cet élément pour le titre -->
-      <button class="lightbox-next" aria-label="Média suivant">&#10095;</button>
+        <!-- Lightbox pour afficher les médias en plein écran -->
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
+        <button class="lightbox-prev" aria-label="Média précédent">&#10094;</button>
+        <img class="lightbox-image" src="" alt="Image en plein écran">
+        <video class="lightbox-video" controls>
+            <source src="" type="video/mp4">
+            Votre navigateur ne prend pas en charge la balise vidéo.
+        </video>
+        <h2 class="lightbox-title"></h2> <!-- Titre du média affiché dans la lightbox -->
+        <button class="lightbox-next" aria-label="Média suivant">&#10095;</button>
     </div>
+
+    <!-- Conteneur pour afficher le nombre total de "j'aime" et le prix -->
     <div class="total-likes-container">
-      <span class="total-likes">0</span>
-      <span class="total-likes">❤</span>
-      <span class="price-per-day">300€ / jour</span>
+        <span class="total-likes">0</span> <!-- Total des "j'aime" -->
+        <span class="total-likes">❤</span> <!-- Icône cœur -->
+        <span class="price-per-day">300€ / jour</span> <!-- Prix par jour -->
     </div>
-    
-  </body>
+
+        <!-- Lightbox pour afficher les médias en plein écran -->
+        <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog">
+          <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
+          <button class="lightbox-prev" aria-label="Média précédent">&#10094;</button>
+          <img class="lightbox-image" src="" alt="Image en plein écran">
+          <video class="lightbox-video" controls>
+              <source src="" type="video/mp4">
+              Votre navigateur ne prend pas en charge la balise vidéo.
+          </video>
+          <h2 class="lightbox-title"></h2> <!-- Titre du média affiché dans la lightbox -->
+          <button class="lightbox-next" aria-label="Média suivant">&#10095;</button>
+      </div>
+  
+      <!-- Conteneur pour afficher le nombre total de "j'aime" et le prix -->
+      <div class="total-likes-container">
+          <span class="total-likes">0</span> <!-- Total des "j'aime" -->
+          <span class="total-likes">❤</span> <!-- Icône cœur -->
+          <span class="price-per-day">300€ / jour</span> <!-- Prix par jour -->
+      </div>  
+</body>
 </html>
+
+
