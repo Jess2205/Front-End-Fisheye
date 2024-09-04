@@ -78,7 +78,7 @@
 		{
 			"id": 9025895,
 			"photographerId": 82,
-			"title": "Fashion Pattern on a Pattern",
+			"title": "Fashion Pattern",
 			"image": "Fashion_Pattern_on_Pattern.jpg",
 			"likes": 72,
 			"date": "2013-08-12",
@@ -114,7 +114,7 @@
 		{
 			"id": 8328953,
 			"photographerId": 82,
-			"title": "Wooden sculpture of a horse",
+			"title": "Wooden sculpture",
 			"video": "Art_Wooden_Horse_Sculpture.mp4",
 			"likes": 24,
 			"date": "2011-12-08",
@@ -205,7 +205,7 @@
 		{
 			"id": 87367293,
 			"photographerId": 925,
-			"title": "Musical Festival Singer",
+			"title": "Musical Festival",
 			"image": "Event_Emcee.jpg",
 			"likes": 23,
 			"date": "2018-02-22",
@@ -232,7 +232,7 @@
 		{
 			"id": 394583434,
 			"photographerId": 527,
-			"title": "Rocky mountains from the air",
+			"title": "Rocky mountains",
 			"video": "Travel_Rock_Mountains.mp4",
 			"likes": 23,
 			"date": "2017-03-18",
@@ -259,7 +259,7 @@
 		{
 			"id": 23425523,
 			"photographerId": 527,
-			"title": "Bridge into the Forest",
+			"title": "Bridge into ",
 			"image": "Travel_Bridge_into_Forest.jpg",
 			"likes": 34,
 			"date": "2016-04-05",
@@ -414,7 +414,7 @@
 		{
 			"id": 2523434,
 			"photographerId": 195,
-			"title": "Senset on Canals, Venice",
+			"title": "Senset, Venice",
 			"image": "Travel_SunsetonCanals.jpg",
 			"likes": 53,
 			"date": "2019-05-06",
@@ -432,30 +432,14 @@
 		{
 			"id": 356234343,
 			"photographerId": 195,
-			"title": "City Bike and Stair, Paris",
+			"title": "City Bike, Paris",
 			"image": "Travel_Bike_and_Stair.jpg",
 			"likes": 53,
 			"date": "2019-06-20",
 			"price": 60
 		},
-		{
-			"id": 235234343,
-			"photographerId": 195,
-			"title": "Adventure Door, India",
-			"image": "Travel_Adventure_Door.jpg",
-			"likes": 63,
-			"date": "2019-06-26",
-			"price": 60
-		},
-		{
-			"id": 6234234343,
-			"photographerId": 195,
-			"title": "Contrast, St Petersburg",
-			"image": "Architecture_Contrast.jpg",
-			"likes": 52,
-			"date": "2019-06-30",
-			"price": 60
-		},
+		
+		
 		{
 			"id": 6525666253,
 			"photographerId": 195,
@@ -477,7 +461,7 @@
 		{
 			"id": 9259398453,
 			"photographerId": 195,
-			"title": "Drone shot of Buenos Aires highways",
+			"title": "Drone shot ",
 			"video": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
 			"likes": 57,
 			"date": "2020-01-20",
@@ -486,7 +470,7 @@
 		{
 			"id": 3523523534,
 			"photographerId": 195,
-			"title": "Corner Building and Blue Sky",
+			"title": "Corner Building ",
 			"image": "Architecture_Corner_Room.jpg",
 			"likes": 54,
 			"date": "2020-05-05",
@@ -558,7 +542,7 @@
 		{
 			"id": 939234243,
 			"photographerId": 930,
-			"title": "Water on Modern Building",
+			"title": "Water on Modern Build",
 			"image": "Architecture_Water_on_Modern.jpg",
 			"likes": 55,
 			"date": "2018-05-10",

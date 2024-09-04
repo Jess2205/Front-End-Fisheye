@@ -132,8 +132,10 @@ a {
 
 #sort {
     padding: 0.5rem;
+    margin-bottom: 10px;
     color: white;
     background-color: #901C1C;
+    font-size: 18px;
 }
 
 /* Styles pour la galerie de médias */
@@ -210,6 +212,7 @@ h2 {
     color: #000;
     font-size: 28px;
     padding: 0;
+   text-align:left;
     margin-top: 10px;
 }
 
@@ -375,9 +378,9 @@ h2 {
 
 /* Styles de base pour le conteneur des likes totaux */
 .total-likes-container {
-    position: relative;
-    bottom: 1030px;
-    left: 500px;
+    position:fixed;
+    bottom: 2px;
+    right: 150px;
     background-color: #DB8876;
     padding: 5px 20px;
     border-radius: 5px;
