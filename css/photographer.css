@@ -2,6 +2,8 @@ body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
+    width: 1440px;
+    padding: auto;
    
 }
 
@@ -12,7 +14,7 @@ header {
 }
 
 .logo {
-    width: 100px; 
+    width: 5%; 
 }
 
 main {
@@ -30,7 +32,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    
     height: 30px;
     
     
@@ -42,14 +44,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:  #f2f2f2;
+    background-color: #FAFAFA;
     margin-left: 50px;
     margin-right: 50px;
     padding-left: 20px;
     padding-right: 20px;
-    border-bottom: 2px solid #e6e6e6;
+    border-bottom: 2px solid #FAFAFA;
     text-align: center;
-    width: 1250px;
+    width: 85%;
    
    
 }
@@ -68,7 +70,7 @@ a {
 
 
 #photographer-details h2 {
-    font-size: 36px;
+    font-size: 64px;
     color: #D3573C;
     margin: 0;
     padding: 0;
@@ -164,7 +166,7 @@ a {
 .media {
     width: 350px;
     height: 300px;
-    gap: 10px;
+    gap: 30px;
     padding-left: 18px;
    object-fit: cover;
    
@@ -221,17 +223,25 @@ h2 {
     background:#DB8876;
     padding: 2rem;
     border-radius: 0.5rem;
-    width: 500px;
+    width: 400px;
     height: 600px;
     padding-top: 0;
     position: relative;
-    left: 30%;
+    right: 2%;
    
     
 }
 
 .modal h2 {
     color:#000000;
+    font-size: 28px;
+    padding: 0;
+    margin-top: 10px;
+    
+}
+
+.modal span {
+    display: flex;
 }
 
 .modal header {
@@ -239,31 +249,43 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 0;
+       
 }
+
+
 
 .modal form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+   
+   
 }
 
 .modal form input,
 .modal form textarea {
     width: 95%;
-    padding: 0.5rem;
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
 }
 
+
+
 #message {
-    height: 100px;
+    height: 170px;
 }
 
 .modal form button {
     align-self: flex-start;
-    top:10px;
-    height: 70px;
+    margin-top: 20px;
+    width: 140px;
+    height: 59px;
+    opacity: 0px;
+    background: #901C1C;
+    color: #f2f2f2;
+    border-color:#901C1C;
 }
+
 
 .closeModal {
     width: 10%;
@@ -286,31 +308,43 @@ h2 {
 
 /* Styles de base pour la lightbox */
 .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
+   
+    flex-direction: column; /* Aligne les enfants de la lightbox en colonne */
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:white;
+    padding: 20px;
     z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+    
+   
+}
   
   .lightbox.hidden {
     visibility: hidden;
     opacity: 0;
   }
   
-  .lightbox img,
-  .lightbox video {
-    width: 1050px;
-    height: 900px;
-    object-fit:contain;
-  }
+  .lightbox img, .lightbox video {
+    max-width: 80%;
+    max-height: 90%;
+   
+}
+
+
+  /* Titre du média */
+  .lightbox-title {
+    color: #fff;
+    font-size: 1em;
+    padding-left: 0;
+    text-align:start;
+    width: 80%; /* S'assure que le titre occupe toute la largeur disponible */
+    color: #901C1C;
+}
   
   .lightbox-close,
   .lightbox-prev,
@@ -321,22 +355,29 @@ h2 {
     color: white;
     font-size: 2em;
     cursor: pointer;
+    color: #901C1C;
+   
+   
   }
+
+  
   
   .lightbox-close {
-    top: 20px;
-    right: 30px;
+    top: 10px;
+    right: 5px;
+    
   }
   
   .lightbox-prev {
     top: 50%;
-    left: 30px;
+    left: 10px;
+    
     transform: translateY(-50%);
   }
   
   .lightbox-next {
     top: 50%;
-    right: 30px;
+    right: 10px;
     transform: translateY(-50%);
   }
   
@@ -388,8 +429,8 @@ h2 {
     bottom: 1030px;
     left: 500px;
     background-color: #DB8876;
-   padding-left: 15px;
-   padding-right: 15px;
+   padding-left: 20px;
+   padding-right: 20px;
    padding-bottom: 5px;
    padding-top: 5px;
     border-radius: 5px;

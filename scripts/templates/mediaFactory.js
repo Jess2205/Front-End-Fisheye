@@ -1,10 +1,3 @@
-
-
-function getPhotographerIdFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const photographerId = getPhotographerIdFromUrl(); // Récupère l'ID du photographe depuis l'URL
 
@@ -17,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Erreur lors du chargement des données:', error));
 });
-
-
 
 function displayMedia(mediaArray) {
     const gallery = document.getElementById('gallery');
@@ -54,8 +45,6 @@ function initSort(mediaArray) {
         displayMedia(mediaArray);
     });
 }
-
-// Les fonctions `mediaFactory`, `updateTotalLikes`, `openLightbox`, etc. restent les mêmes
 
 let currentMediaIndex = 0;
 let mediaItems = [];
@@ -119,7 +108,7 @@ function mediaFactory(media) {
 // Fonction pour mettre à jour le total des "j'aime"
 function updateTotalLikes() {
     const likeElements = document.querySelectorAll('.likes-count');
-    let totalLikes = 0; // Replacez par la valeur initiale si nécessaire
+    let totalLikes = 0;
 
     likeElements.forEach(likeElement => {
         totalLikes += parseInt(likeElement.textContent, 10);
@@ -127,11 +116,6 @@ function updateTotalLikes() {
 
     document.querySelector('.total-likes').textContent = totalLikes;
 }
-
-// Appeler la fonction pour initialiser le total des "j'aime" lors du chargement du DOM
-document.addEventListener('DOMContentLoaded', () => {
-    updateTotalLikes();
-});
 
 // Fonction pour ouvrir la lightbox avec le média sélectionné
 function openLightbox(mediaId) {
@@ -157,34 +141,54 @@ function openLightbox(mediaId) {
         document.querySelector('.lightbox-video').style.display = 'block';
     }
 
+    // Ajouter le titre du média à la lightbox
+    const mediaTitle = mediaItem.getAttribute('alt');
+    document.querySelector('.lightbox-title').textContent = mediaTitle;
+    
     // Affichage de la lightbox
     lightbox.classList.remove('hidden');
+    lightbox.style.display = 'flex'; // Assurez-vous que la Lightbox est visible
     lightbox.style.opacity = '1';
 }
 
 // Fonction pour passer au média suivant
 function nextMedia() {
-    currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
-    openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+    if (mediaItems.length > 0) {
+        currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
+        openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+    }
 }
 
 // Fonction pour passer au média précédent
 function prevMedia() {
-    currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
-    openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+    if (mediaItems.length > 0) {
+        currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
+        openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+    }
 }
 
 // Attacher les événements pour les boutons "suivant" et "précédent"
-document.querySelector('.lightbox-next').addEventListener('click', () => {
-    if (mediaItems.length > 0) nextMedia();
-});
-document.querySelector('.lightbox-prev').addEventListener('click', () => {
-    if (mediaItems.length > 0) prevMedia();
-});
+document.querySelector('.lightbox-next').addEventListener('click', nextMedia);
+document.querySelector('.lightbox-prev').addEventListener('click', prevMedia);
 
 // Ajout de la gestion de la fermeture de la lightbox 
 document.querySelector('.lightbox-close').addEventListener('click', () => {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.add('hidden');
     lightbox.style.opacity = '0';
+    lightbox.style.display = 'none'; // Assurez-vous que la Lightbox est cachée
+});
+
+// Gestion des événements clavier pour la Lightbox
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') {
+            prevMedia();
+        } else if (e.key === 'ArrowRight') {
+            nextMedia();
+        } else if (e.key === 'Escape') {
+            document.querySelector('.lightbox-close').click(); // Simule un clic sur le bouton de fermeture
+        }
+    }
 });
