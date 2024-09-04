@@ -1,8 +1,9 @@
 
 // Exemple de fonction asynchrone
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function someAsyncFunction() {
     // Simulation d'une opération asynchrone
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             resolve('Success');
         }, 1000);
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log('Données du formulaire:', data);
 
             // Fermer la modale après soumission
+            // eslint-disable-next-line no-undef
             closeModal();
         });
     }

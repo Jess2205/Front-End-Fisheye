@@ -59,6 +59,8 @@ function displayMediaData(mediaList) {
     mediaSection.innerHTML = ''; // Vider la section des médias
 
     mediaList.forEach(media => {
+        
+        // eslint-disable-next-line no-undef
         const mediaCard = mediaFactory(media);
         mediaSection.appendChild(mediaCard.getMediaCardDOM());
     });
