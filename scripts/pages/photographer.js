@@ -1,25 +1,43 @@
-
-
 // Fonction pour obtenir les données d'un photographe en fonction de son ID
 async function getPhotographerData(id) {
+    console.log(`Récupération des données pour le photographe avec l'ID: ${id}`);
+    
     try {
         const response = await fetch('data/photographers.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+
         const data = await response.json();
+        console.log('Données récupérées:', data);
+        
         // Trouver et retourner le photographe correspondant à l'ID
-        return {
-            photographer: data.photographers.find(photographer => photographer.id === parseInt(id)),
-            media: data.media.filter(media => media.photographerId === parseInt(id))
-        };
+        const photographer = data.photographers.find(photographer => photographer.id === parseInt(id));
+        const media = data.media.filter(media => media.photographerId === parseInt(id));
+        
+        console.log('Photographe trouvé:', photographer);
+        console.log('Médias trouvés:', media);
+        
+        return { photographer, media };
     } catch (error) {
-        console.error('Error fetching photographer data:', error);
+        console.error('Erreur lors de la récupération des données du photographe:', error);
+        return { photographer: null, media: [] }; // Retourner un photographe nul et une liste de médias vide en cas d'erreur
     }
 }
 
 // Fonction pour afficher les données du photographe sur la page
 function displayPhotographerData(photographer) {
+    console.log('Affichage des données du photographe:', photographer);
+    
     const detailsContainer = document.getElementById('photographer-details');
     
-    
+    if (!detailsContainer) {
+        console.error('Le conteneur des détails du photographe est introuvable.');
+        return;
+    }
+
+
     // Vider le conteneur avant d'ajouter de nouveaux éléments
     detailsContainer.innerHTML = '';
 
@@ -28,7 +46,6 @@ function displayPhotographerData(photographer) {
     infoContainer.classList.add('text-container'); // Ajouter la classe 'text-container'
 
     // Créer et ajouter les éléments avec les données du photographe
-    
     const nameElement = document.createElement('h2');
     nameElement.textContent = photographer.name;
 
@@ -55,35 +72,47 @@ function displayPhotographerData(photographer) {
 
 // Fonction pour afficher les médias du photographe sur la page
 function displayMediaData(mediaList) {
+    console.log('Affichage des médias du photographe:', mediaList);
+    
     const mediaSection = document.querySelector('.gallery');
+    if (!mediaSection) {
+        console.error('La section des médias est introuvable.');
+        return;
+    }
+
+
     mediaSection.innerHTML = ''; // Vider la section des médias
 
     mediaList.forEach(media => {
-        
+        // Assurez-vous que la fonction mediaFactory est définie ou importée
+        if (typeof mediaFactory === 'undefined') {
+            console.error('La fonction mediaFactory n\'est pas définie.');
+            return;
+        }
         // eslint-disable-next-line no-undef
         const mediaCard = mediaFactory(media);
         mediaSection.appendChild(mediaCard.getMediaCardDOM());
     });
-}
-
-
-
+ }
 
 // Fonction d'initialisation pour charger les données au chargement de la page
 async function init() {
+    console.log('Initialisation de la page du photographe.');
+
     const urlParams = new URLSearchParams(window.location.search);
     const photographerId = urlParams.get('id');
 
     if (photographerId) {
+        console.log('ID du photographe trouvé dans l\'URL:', photographerId);
         const { photographer, media } = await getPhotographerData(photographerId);
         if (photographer) {
             displayPhotographerData(photographer);
             displayMediaData(media);
         } else {
-            console.error('Photographer not found');
+            console.error('Photographe non trouvé');
         }
     } else {
-        console.error('No photographer ID found in URL');
+        console.error('Aucun ID de photographe trouvé dans l\'URL');
     }
 }
 
