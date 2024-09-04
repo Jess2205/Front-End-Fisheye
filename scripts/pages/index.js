@@ -6,7 +6,7 @@
 async function getPhotographers() {
     try {
         console.log('Début de la récupération des photographes.');
-        const response = await fetch('/data/photographers.json');
+        const response = await fetch('data/photographers.json');
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
