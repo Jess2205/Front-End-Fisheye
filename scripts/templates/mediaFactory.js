@@ -1,3 +1,10 @@
+
+
+function getPhotographerIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const photographerId = getPhotographerIdFromUrl(); // Récupère l'ID du photographe depuis l'URL
 
@@ -10,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Erreur lors du chargement des données:', error));
 });
+
+
 
 function displayMedia(mediaArray) {
     const gallery = document.getElementById('gallery');
@@ -45,6 +54,8 @@ function initSort(mediaArray) {
         displayMedia(mediaArray);
     });
 }
+
+// Les fonctions `mediaFactory`, `updateTotalLikes`, `openLightbox`, etc. restent les mêmes
 
 let currentMediaIndex = 0;
 let mediaItems = [];
@@ -108,7 +119,7 @@ function mediaFactory(media) {
 // Fonction pour mettre à jour le total des "j'aime"
 function updateTotalLikes() {
     const likeElements = document.querySelectorAll('.likes-count');
-    let totalLikes = 0;
+    let totalLikes = 0; // Replacez par la valeur initiale si nécessaire
 
     likeElements.forEach(likeElement => {
         totalLikes += parseInt(likeElement.textContent, 10);
@@ -116,6 +127,11 @@ function updateTotalLikes() {
 
     document.querySelector('.total-likes').textContent = totalLikes;
 }
+
+// Appeler la fonction pour initialiser le total des "j'aime" lors du chargement du DOM
+document.addEventListener('DOMContentLoaded', () => {
+    updateTotalLikes();
+});
 
 // Fonction pour ouvrir la lightbox avec le média sélectionné
 function openLightbox(mediaId) {
