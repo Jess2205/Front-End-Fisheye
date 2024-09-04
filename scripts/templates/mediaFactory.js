@@ -1,8 +1,8 @@
-
-
+// Fonction pour obtenir l'ID du photographe depuis l'URL
 function getPhotographerIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
+    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
