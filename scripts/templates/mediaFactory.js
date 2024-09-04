@@ -55,6 +55,9 @@ function initSort(mediaArray) {
     });
 }
 
+
+
+
 // Les fonctions `mediaFactory`, `updateTotalLikes`, `openLightbox`, etc. restent les mêmes
 
 let currentMediaIndex = 0;
