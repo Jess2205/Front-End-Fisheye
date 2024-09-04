@@ -35,10 +35,10 @@ function photographerTemplate(data) {
         const location = document.createElement('p');
         location.textContent = `${city}, ${country}`;
 
-        const taglineElement = document.createElement('p');
+        const taglineElement = document.createElement('span');
         taglineElement.textContent = tagline;
 
-        const pricing = document.createElement('p');
+        const pricing = document.createElement('td');
         pricing.textContent = `${price}€/jour`;
 
         // Ajouter le texte dans le conteneur
