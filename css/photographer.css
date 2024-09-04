@@ -1,66 +1,59 @@
+/* Styles de base pour le corps de la page */
 body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
-    width: 1440px;
-    padding: auto;
-   
+    width: 100%; /* Utilise la largeur totale de l'écran */
 }
 
+/* Styles pour l'en-tête */
 header {
     margin-bottom: 0;
-    
-    text-align: center;    
+    text-align: center;
 }
 
 .logo {
-    width: 5%; 
+    width: 5%;
 }
 
+/* Styles pour la section principale */
 main {
     padding: 2rem;
     padding-top: 0;
 }
 
+/* Styles pour les images */
 img {
     width: 350px;
     height: 300px;
-    
 }
 
+/* Styles pour l'en-tête du photographe */
 .photograph-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    
     height: 30px;
-    
-    
 }
 
 /* Styles pour la section des détails du photographe */
-
 #photographer-details {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #FAFAFA;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin: 0 50px;
+    padding: 0 20px;
     border-bottom: 2px solid #FAFAFA;
     text-align: center;
     width: 85%;
-   
-   
 }
 
 #photographer-details div {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;  
+    align-items: flex-start;
     margin: 0;
 }
 
@@ -68,13 +61,11 @@ a {
     text-decoration: none;
 }
 
-
 #photographer-details h2 {
-    font-size: 64px;
+    font-size: 50px;
     color: #D3573C;
     margin: 0;
     padding: 0;
-   
 }
 
 #photographer-details p {
@@ -86,24 +77,16 @@ a {
 
 #photographer-details span {
     font-size: 18px;
-    color:#525252;
+    color: #525252;
     margin: 5px 0;
 }
-
-
 
 #photographer-details img {
     width: 200px;
     height: 120px;
-    object-fit:cover;
-    -webkit-border-radius:50% ;
-    -moz-border-radius:50% ;
-    -ms-border-radius:50% ;
-    -o-border-radius:50% ;
-    border-radius:50% ;
+    object-fit: cover;
+    border-radius: 50%;
 }
-
-
 
 /* Responsive design pour les petits écrans */
 @media (max-width: 768px) {
@@ -117,6 +100,7 @@ a {
     }
 }
 
+/* Styles pour le bouton de contact */
 .contact_button {
     background-color: #901C1C;
     color: white;
@@ -125,24 +109,22 @@ a {
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-top: 0px;
-    position: relative;
-    bottom: 70px;
+    margin-top: 0;
     width: 170px;
     height: 59px;
-    font-size:20px ;
+    font-size: 20px;
+    margin-bottom: 130px;
 }
 
 .contact_button:hover {
     background-color: #c94c4c;
 }
 
-
+/* Styles pour les options de tri */
 .sort-options {
     display: flex;
     align-items: center;
-    
-    color: #000000;
+    color: #000;
     font-weight: 700;
     font-size: 18px;
     margin-left: 50px;
@@ -150,30 +132,27 @@ a {
 
 #sort {
     padding: 0.5rem;
-    color:white;
+    color: white;
     background-color: #901C1C;
-    ;
-
 }
 
+/* Styles pour la galerie de médias */
 .gallery {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
 }
 
 .media {
     width: 350px;
     height: 300px;
-    gap: 30px;
-    padding-left: 18px;
-   object-fit: cover;
-   
+    object-fit: cover;
     border-radius: 0.5rem;
 }
 
-.media img, .media video {
+.media img,
+.media video {
     width: 100%;
     border-radius: 0.5rem;
 }
@@ -184,22 +163,19 @@ a {
 
 article {
     width: 30%;
-    justify-content:flex-start;
-   
-   
-     
+    justify-content: flex-start;
 }
 
+/* Styles pour les titres */
 h2 {
-  padding-left: 20px;
-  margin-top: 0;
-  color: #901C1C;
-  size: 24px;
-  font-weight: 400;
- 
-   }
    
+    margin-top: 0;
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+}
 
+/* Styles pour les informations des médias */
 .media-info {
     display: flex;
     justify-content: space-between;
@@ -207,6 +183,7 @@ h2 {
     margin-top: 0.5rem;
 }
 
+/* Styles pour la modale de contact */
 #contact_modal {
     display: none;
     position: fixed;
@@ -220,24 +197,20 @@ h2 {
 }
 
 .modal {
-    background:#DB8876;
+    background: #DB8876;
     padding: 2rem;
     border-radius: 0.5rem;
     width: 400px;
     height: 600px;
-    padding-top: 0;
     position: relative;
     right: 2%;
-   
-    
 }
 
 .modal h2 {
-    color:#000000;
+    color: #000;
     font-size: 28px;
     padding: 0;
     margin-top: 10px;
-    
 }
 
 .modal span {
@@ -249,16 +222,11 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 0;
-       
 }
-
-
 
 .modal form {
     display: flex;
     flex-direction: column;
-   
-   
 }
 
 .modal form input,
@@ -269,8 +237,6 @@ h2 {
     border-radius: 0.25rem;
 }
 
-
-
 #message {
     height: 170px;
 }
@@ -280,116 +246,101 @@ h2 {
     margin-top: 20px;
     width: 140px;
     height: 59px;
-    opacity: 0px;
     background: #901C1C;
     color: #f2f2f2;
-    border-color:#901C1C;
+    border-color: #901C1C;
 }
 
-
+/* Styles pour le bouton de fermeture de la modale */
 .closeModal {
     width: 10%;
-}
-
-.closeModal {
     background: transparent;
     border: none;
-    padding: 0; /* Supprime les marges internes */
+    padding: 0;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .closeModal img {
-    width: 20px; /* Ajustez la largeur de l'image */
-    height: 20px; /* Ajustez la hauteur de l'image */
-  }
+}
 
-/* Styles de base pour la lightbox */
+.closeModal img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Styles pour la lightbox */
 .lightbox {
     display: flex;
-   
-    flex-direction: column; /* Aligne les enfants de la lightbox en colonne */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:white;
-    padding: 20px;
+    background-color: white;
+    padding: 10px;
     z-index: 1000;
-    
    
 }
-  
-  .lightbox.hidden {
+
+.lightbox.hidden {
     visibility: hidden;
     opacity: 0;
-  }
-  
-  .lightbox img, .lightbox video {
+}
+
+.lightbox img,
+.lightbox video {
     max-width: 80%;
     max-height: 90%;
-   
 }
 
-
-  /* Titre du média */
-  .lightbox-title {
-    color: #fff;
+.lightbox-title {
+    color: #901C1C;
     font-size: 1em;
     padding-left: 0;
-    text-align:start;
-    width: 80%; /* S'assure que le titre occupe toute la largeur disponible */
-    color: #901C1C;
+    text-align: start;
+    width: 80%;
 }
-  
-  .lightbox-close,
-  .lightbox-prev,
-  .lightbox-next {
+
+/* Boutons de la lightbox */
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
     position: absolute;
     background: none;
     border: none;
-    color: white;
+    color: #901C1C;
     font-size: 2em;
     cursor: pointer;
-    color: #901C1C;
-   
-   
-  }
+}
 
-  
-  
-  .lightbox-close {
+.lightbox-close {
     top: 10px;
     right: 5px;
-    
-  }
-  
-  .lightbox-prev {
+}
+
+.lightbox-prev {
     top: 50%;
     left: 10px;
-    
     transform: translateY(-50%);
-  }
-  
-  .lightbox-next {
+}
+
+.lightbox-next {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-  }
-  
-  .lightbox-video {
+}
+
+.lightbox-video {
     display: none;
-  }
-  
-  /* Conteneur pour les likes */
+}
+
+/* Styles pour le conteneur des likes */
 .likes-container {
     display: flex;
-    justify-content: end;
-    align-items:end;
+    justify-content: flex-end;
+    align-items: flex-end;
     margin-top: 10px;
     margin-right: 70px;
     position: relative;
@@ -399,8 +350,7 @@ h2 {
 /* Compteur de likes */
 .likes-count {
     font-size: 1.1em;
-   
-    color:#901C1C;
+    color: #901C1C;
     padding-left: 20px;
 }
 
@@ -412,7 +362,6 @@ h2 {
     font-size: 1.1em;
     cursor: pointer;
     transition: transform 0.2s ease;
-    
 }
 
 .like-button:hover {
@@ -423,32 +372,27 @@ h2 {
     outline: none;
 }
 
-/* Styles de base pour le conteneur des likes */
+/* Styles de base pour le conteneur des likes totaux */
 .total-likes-container {
     position: relative;
     bottom: 1030px;
     left: 500px;
     background-color: #DB8876;
-   padding-left: 20px;
-   padding-right: 20px;
-   padding-bottom: 5px;
-   padding-top: 5px;
+    padding: 5px 20px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-   justify-content: end;
-    gap: 10px; /* Pour espacer le nombre de likes du prix */
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .total-likes {
     font-size: 18px;
     color: #000000;
     font-weight: bold;
-    
-    
 }
 
 .price-per-day {
     font-size: 16px;
-    color:#000000;
+    color: #000000;
 }
