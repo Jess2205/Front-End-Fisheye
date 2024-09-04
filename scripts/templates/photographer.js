@@ -1,12 +1,13 @@
-
-
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function photographerTemplate(data) {
     const { name, city, country, tagline, price, portrait, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
+    console.log(`Création du modèle pour le photographe: ${name}`);
+    
     function getUserCardDOM() {
+        console.log('Création de la carte utilisateur pour le photographe:', name);
+
         const article = document.createElement('article');
 
         // Créer un lien pour l'image et le titre
@@ -49,10 +50,14 @@ function photographerTemplate(data) {
         article.appendChild(link);
         article.appendChild(textContainer);
 
+        console.log('Carte utilisateur créée:', article);
+        
         return article;
     }
 
     function getPhotographerHeaderDOM() {
+        console.log('Création de l\'en-tête du photographe:', name);
+        
         const header = document.createElement('div');
         header.classList.add('photograph-header');
 
@@ -89,6 +94,8 @@ function photographerTemplate(data) {
         header.appendChild(detailsSection);
         header.appendChild(contactButton);
 
+        console.log('En-tête du photographe créé:', header);
+        
         return header;
     }
 
