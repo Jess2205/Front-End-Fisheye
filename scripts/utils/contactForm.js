@@ -1,90 +1,117 @@
-// Exemple de fonction asynchrone
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function someAsyncFunction() {
-    console.log('Démarrage de la fonction asynchrone');
-    
-    // Simulation d'une opération asynchrone
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve('Success');
-        }, 1000);
-    });
+// Fonction pour obtenir les paramètres de l'URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
 }
 
-// Gestion du formulaire de contact
+// Fonction pour charger les données du photographe
+async function loadPhotographerData() {
+    const photographerId = parseInt(getQueryParam('id'), 10);
+
+    if (isNaN(photographerId)) {
+        console.error('ID du photographe invalide ou manquant dans l\'URL.');
+        return;
+    }
+
+    try {
+        const response = await fetch('data/photographers.json');
+        if (!response.ok) {
+            throw new Error('Erreur lors du chargement du fichier JSON');
+        }
+
+        const json = await response.json();
+        if (!json.photographers || !Array.isArray(json.photographers)) {
+            throw new Error('Les données du fichier JSON ne contiennent pas un tableau de photographes');
+        }
+
+        // Trouver le photographe par ID
+        const photographer = json.photographers.find(p => p.id === photographerId);
+
+        if (photographer) {
+            // Afficher la modale avec le nom du photographe
+            displayModal(photographer.name);
+        } else {
+            console.error('Photographe non trouvé');
+        }
+    } catch (error) {
+        console.error('Erreur lors du chargement des données du photographe:', error);
+    }
+}
+
+// Fonction pour afficher la modale
+function displayModal(photographerName) {
+    console.log('Affichage de la modale');
+
+    const modal = document.getElementById("contact_modal");
+    const overlay = document.querySelector('.modal_overlay');
+    const nameElement = document.getElementById('modal-photographer-name');
+
+    if (nameElement) {
+        nameElement.textContent = photographerName;
+        console.log('Nom du photographe affiché dans la modale:', photographerName);
+    } else {
+        console.error("L'élément avec l'ID 'modal-photographer-name' est introuvable.");
+    }
+
+    // Afficher la modale et l'overlay
+    if (modal) {
+        modal.style.display = "flex";
+        modal.setAttribute('aria-hidden', 'false');
+    } else {
+        console.error("L'élément avec l'ID 'contact_modal' est introuvable.");
+    }
+
+    if (overlay) {
+        overlay.setAttribute('aria-hidden', 'false');
+        overlay.classList.add('active');
+        console.log("Overlay affiché.");
+    } else {
+        console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
+    }
+
+    document.getElementById('first-name').focus();
+}
+
+// Fonction pour fermer la modale
+function closeModal() {
+    console.log('Fermeture de la modale de contact.');
+
+    const modal = document.getElementById("contact_modal");
+    const overlay = document.querySelector('.modal_overlay');
+
+    if (modal) {
+        modal.style.display = "none";
+        modal.setAttribute('aria-hidden', 'true');
+        console.log("Modale cachée.");
+    } else {
+        console.error("L'élément avec l'ID 'contact_modal' est introuvable.");
+    }
+
+    if (overlay) {
+        overlay.setAttribute('aria-hidden', 'true');
+        overlay.classList.remove('active');
+        console.log("Overlay caché.");
+    } else {
+        console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
+    }
+
+    const contactButton = document.querySelector('.contact_button');
+    if (contactButton) {
+        contactButton.focus();
+        console.log("Focus remis sur le bouton 'Contactez-moi'.");
+    } else {
+        console.error("L'élément avec la classe 'contact_button' est introuvable.");
+    }
+}
+
+// Attacher l'événement de clic au bouton "Contactez-moi"
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('DOM chargé, initialisation des fonctions de la modale');
-    
-    // Fonction pour afficher la modale
-    window.displayModal = function() {
-        console.log('Affichage de la modale');
-
-        const modal = document.getElementById("contact_modal");
-        const overlay = document.querySelector('.modal_overlay');
-        const nameElement = document.getElementById('modal-photographer-name');
-
-        // Remplir le nom du photographe
-        const photographerName = ('Mimi Keel'); // Remplacez par une récupération dynamique si nécessaire
-        if (nameElement) {
-            nameElement.textContent = photographerName;
-            console.log('Nom du photographe affiché dans la modale:', photographerName);
-        } else {
-            console.error("L'élément avec l'ID 'modal-photographer-name' est introuvable.");
-        }
-
-
-        // Afficher la modale et l'overlay
-        if (modal) {
-            modal.style.display = "flex";
-            modal.setAttribute('aria-hidden', 'false');
-        } else {
-            console.error("L'élément avec l'ID 'contact_modal' est introuvable.");
-        }
-
-        if (overlay) {
-            overlay.setAttribute('aria-hidden', 'false');
-            overlay.classList.add('active');
-            console.log("Overlay affiché.");
-        } else {
-            console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
-        }
-
-        document.getElementById('first-name').focus();
-    };
-
-    // Fonction pour fermer la modale
-    window.closeModal = function() {
-        console.log('Fermeture de la modale de contact.');
-
-        const modal = document.getElementById("contact_modal");
-        const overlay = document.querySelector('.modal_overlay');
-
-        // Masquer la modale et l'overlay
-        if (modal) {
-            modal.style.display = "none";
-            modal.setAttribute('aria-hidden', 'true');
-            console.log("Modale cachée.");
-        } else {
-            console.error("L'élément avec l'ID 'contact_modal' est introuvable.");
-        }
-
-        if (overlay) {
-            overlay.setAttribute('aria-hidden', 'true');
-            overlay.classList.remove('active');
-            console.log("Overlay caché.");
-        } else {
-            console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
-        }
-
-        // Remettre le focus sur le bouton "Contactez-moi"
-        const contactButton = document.querySelector('.contact_button');
-        if (contactButton) {
-            contactButton.focus();
-            console.log("Focus remis sur le bouton 'Contactez-moi'.");
-        } else {
-            console.error("L'élément avec la classe 'contact_button' est introuvable.");
-        }
-    };
+    const contactButton = document.querySelector('.contact_button');
+    if (contactButton) {
+        contactButton.addEventListener('click', loadPhotographerData);
+    } else {
+        console.error("L'élément avec la classe 'contact_button' est introuvable.");
+    }
 
     // Gestion du formulaire de contact
     const form = document.getElementById('contact-form');
@@ -93,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault(); // Empêcher l'envoi réel du formulaire
             console.log('Soumission du formulaire interceptée.');
 
-            // Récupérer les données du formulaire
             const formData = new FormData(form);
             const data = {
                 'first-name': formData.get('first-name'),
@@ -104,8 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             console.log('Données du formulaire:', data);
 
-            // Fermer la modale après soumission
-            // eslint-disable-next-line no-undef
             closeModal();
         });
     } else {
