@@ -24,6 +24,7 @@ async function getPhotographers() {
 }
 
 // Fonction pour créer une carte de photographe
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function createPhotographerCard(photographer) {
     const article = document.createElement('article');
     article.setAttribute('tabindex', '0'); // Rendre l'article focusable
@@ -36,6 +37,8 @@ function createPhotographerCard(photographer) {
         <p>${photographer.tagline}</p>
         <a href="contact.html?photographer=${photographer.id}" aria-label="Contacter ${photographer.name}">Contactez-moi</a>
     `;
+
+    
 
     // Gestion des événements clavier pour l'article
     article.addEventListener('keydown', (event) => {
