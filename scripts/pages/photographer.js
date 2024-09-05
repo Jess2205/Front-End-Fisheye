@@ -3,11 +3,10 @@ async function getPhotographerData(id) {
     console.log(`Récupération des données pour le photographe avec l'ID: ${id}`);
     
     try {
-        const response = await fetch('data/photographers.json');
+        const response = await fetch('../data/photographers.json');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-
 
         const data = await response.json();
         console.log('Données récupérées:', data);
@@ -25,6 +24,8 @@ async function getPhotographerData(id) {
         return { photographer: null, media: [] }; // Retourner un photographe nul et une liste de médias vide en cas d'erreur
     }
 }
+
+
 
 // Fonction pour afficher les données du photographe sur la page
 function displayPhotographerData(photographer) {
@@ -115,10 +116,22 @@ async function init() {
         }
     } else {
         console.error('Aucun ID de photographe trouvé dans l\'URL');
+        alert('ID de photographe manquant. Redirection vers la page d\'accueil.');
+        window.location.href = 'index.html'; // Redirection vers la page d'accueil
     }
+    
 }
 
 // Appel de la fonction d'initialisation
 init();
 
+fetch('../data/photographers.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erreur de chargement du fichier JSON');
+    }
+    return response.json();
+  })
+  .then(data => console.log('Données JSON:', data))
+  .catch(error => console.error('Erreur:', error));
 
