@@ -3,7 +3,7 @@ async function getPhotographerData(id) {
     console.log(`Récupération des données pour le photographe avec l'ID: ${id}`);
     
     try {
-        const response = await fetch('../data/photographers.json');
+        const response = await fetch('data/photographers.json');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
