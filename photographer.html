@@ -35,7 +35,8 @@
     <main id="main" role="main">
         <!-- Section pour les détails du photographe -->
         <section id="photographer-details" aria-labelledby="photographer-details-title">
-            <h2 id="photographer-details-title"></h2>
+            <h1 id="photographer-details-title">Détails du Photographe</h1>
+            <!-- Le contenu dynamique des détails du photographe sera ajouté ici -->
         </section>
 
         <!-- Section pour l'en-tête du photographe avec le bouton de contact -->
@@ -88,8 +89,8 @@
         <div class="modal_overlay" aria-hidden="true"></div>
     </div>
 
-        <!-- Lightbox pour afficher les médias en plein écran -->
-    <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog" >
+    <!-- Lightbox pour afficher les médias en plein écran -->
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog" aria-labelledby="lightbox-title">
         <button class="lightbox-close" aria-label="Fermer la lightbox">&times;</button>
         <button class="lightbox-prev" aria-label="Média précédent">&#10094;</button>
         <img class="lightbox-image" src="" alt="Image en plein écran">
@@ -97,19 +98,15 @@
             <source src="" type="video/mp4">
             Votre navigateur ne prend pas en charge la balise vidéo.
         </video>
-        <h2 class="lightbox-title"></h2> <!-- Titre du média affiché dans la lightbox -->
+        <h2 id="lightbox-title" class="lightbox-title"></h2> <!-- Titre du média affiché dans la lightbox -->
         <button class="lightbox-next" aria-label="Média suivant">&#10095;</button>
     </div>
 
     <!-- Conteneur pour afficher le nombre total de "j'aime" et le prix -->
     <div class="total-likes-container">
-        <span class="total-likes">0</span> <!-- Total des "j'aime" -->
-        <span class="total-likes">❤</span> <!-- Icône cœur -->
-        <span class="price-per-day">300€ / jour</span> <!-- Prix par jour -->
+        <span class="total-likes" aria-label="Total des j'aime">0</span> <!-- Total des "j'aime" -->
+        <span class="total-likes" aria-label="Icône cœur">❤</span> <!-- Icône cœur -->
+        <span class="price-per-day" aria-label="Prix par jour">300€ / jour</span> <!-- Prix par jour -->
     </div>
-
-        
 </body>
 </html>
-
-
