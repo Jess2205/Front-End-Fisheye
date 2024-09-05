@@ -24,16 +24,15 @@ async function getPhotographers() {
 }
 
 // Fonction pour créer une carte de photographe
-
-function createPhotographerCard (photographer) {
+function createPhotographerCard(photographer) {
     const article = document.createElement('article');
     article.setAttribute('tabindex', '0'); // Rendre l'article focusable
     article.setAttribute('aria-labelledby', `photographer-${photographer.id}`);
 
     article.innerHTML = `
-        <h2 id="photographer-${photographer.id}">${photographer.name}</h2>
+        <h1 id="photographer-${photographer.id}">${photographer.name}</h1>
         <img src="${photographer.picture}" alt="Portrait de ${photographer.name}" />
-        <p>${photographer.city}, ${photographer.country}</p>
+        <h2>${photographer.city}, ${photographer.country}</h2>
         <p>${photographer.tagline}</p>
         <a href="contact.html?photographer=${photographer.id}" aria-label="Contacter ${photographer.name}">Contactez-moi</a>
     `;

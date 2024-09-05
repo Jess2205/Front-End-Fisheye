@@ -25,8 +25,8 @@ header {
 
 /* Styles pour le titre principal */
 h1 {
-    color: #333; /* Couleur du texte du titre */
-    font-size: 2em; /* Taille du texte du titre */
+    color:#901C1C; /* Couleur du texte du titre */
+    font-size: 24px; /* Taille du texte du titre */
     margin: 0; /* Supprimer la marge par défaut */
 }
 
@@ -89,7 +89,7 @@ a {
 
 #photographer-details p {
     font-size: 24px;
-    color: #901C1C;
+    color:  #D3573C;
     margin: 5px 0;
     align-items: center;
 }

@@ -49,7 +49,7 @@ function displayPhotographerData(photographer) {
     const nameElement = document.createElement('h2');
     nameElement.textContent = photographer.name;
 
-    const cityElement = document.createElement('p');
+    const cityElement = document.createElement('h1');
     cityElement.textContent = `${photographer.city}, ${photographer.country}`;
 
     const taglineElement = document.createElement('span');
