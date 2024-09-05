@@ -31,7 +31,7 @@ function createPhotographerCard(photographer) {
 
     article.innerHTML = `
         <h1 id="photographer-${photographer.id}">${photographer.name}</h1>
-        <img src="${photographer.picture}" alt="Portrait de ${photographer.name}" />
+        <img src="${photographer.picture}" alt="Portrait de ${photographer.name}"/>
         <h2>${photographer.city}, ${photographer.country}</h2>
         <p>${photographer.tagline}</p>
         <a href="contact.html?photographer=${photographer.id}" aria-label="Contacter ${photographer.name}">Contactez-moi</a>

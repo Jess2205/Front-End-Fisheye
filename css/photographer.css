@@ -471,6 +471,11 @@ h2 {
 
 /* Styles de base pour le conteneur des likes totaux */
 
+.total-likes-title {
+    color: #000000;
+    opacity: 0;
+}
+
 .total-likes-container {
     position:fixed;
     bottom: 0px;

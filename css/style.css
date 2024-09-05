@@ -48,13 +48,14 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+   
 }
 
 .photographer_section article {
     background: white;
     width: 400px;
-    height: 300px;
-    text-align: center;
+    height: 280px;
+    text-align:center;
     border-radius: 5px;
 }
 
@@ -62,7 +63,7 @@ h1 {
 .text-container {
     height: 38px;
     line-height: 1;
-    padding-bottom: 50px;
+    
 }
 
 .text-container .img-title-container a {
@@ -74,13 +75,13 @@ h1 {
 
 /* Styles pour les paragraphes dans les articles */
 p {
-    font-size: 13px;
+    font-size: 16px;
     margin: 0;
-    color: #D3573C;
+    color:  #333;
 }
 
 td {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 400;
     margin: 0;
    padding-left: 180px;
@@ -88,7 +89,7 @@ td {
 }
 
 span {
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 400;
     
 }
