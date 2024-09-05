@@ -57,6 +57,31 @@ function initSort(mediaArray) {
 let currentMediaIndex = 0;
 let mediaItems = [];
 
+document.addEventListener('DOMContentLoaded', () => {
+    const selectElement = document.getElementById('sort');
+
+    // Fonction pour mettre à jour la visibilité des options
+    function updateOptionVisibility() {
+        const selectedValue = selectElement.value;
+        Array.from(selectElement.options).forEach(option => {
+            if (option.value === selectedValue) {
+                option.classList.add('hidden-option'); // Masquer l'option sélectionnée
+            } else {
+                option.classList.remove('hidden-option'); // Afficher les autres options
+            }
+        });
+    }
+
+    // Initialiser la visibilité des options au chargement
+    updateOptionVisibility();
+
+    // Mettre à jour la visibilité des options à chaque changement
+    selectElement.addEventListener('change', () => {
+        updateOptionVisibility();
+    });
+});
+
+
 // Fonction pour ouvrir la lightbox
 function openLightbox(mediaId) {
     const lightbox = document.getElementById('lightbox');

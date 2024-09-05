@@ -121,6 +121,10 @@ a {
 }
 
 /* Styles pour les options de tri */
+.hidden-option {
+    display: none;
+}
+
 .sort-options {
     display: flex;
     align-items: center;
