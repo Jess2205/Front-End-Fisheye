@@ -147,9 +147,13 @@ function trapFocus(modal) {
 
 // Attacher l'événement de clic au bouton "Contactez-moi"
 document.addEventListener("DOMContentLoaded", function() {
+    // Modification ici pour attacher un gestionnaire d'événements au bouton de contact
     const contactButton = document.querySelector('.contact_button');
     if (contactButton) {
-        contactButton.addEventListener('click', loadPhotographerData);
+        contactButton.addEventListener('click', function() {
+            // Charger les données du photographe uniquement lorsqu'on clique sur le bouton
+            loadPhotographerData();
+        });
     } else {
         console.error("L'élément avec la classe 'contact_button' est introuvable.");
     }

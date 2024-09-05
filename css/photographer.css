@@ -10,10 +10,24 @@ body {
 header {
     margin-bottom: 0;
     text-align: center;
+    background-color: #f5f5f5; /* Couleur de fond de l'en-tête */
+    padding: 10px; /* Espacement interne */
+    text-align:left; 
+    padding-bottom: 0;
 }
 
 .logo {
-    width: 5%;
+    padding-left: 90px;
+    max-width: 150px; /* Limiter la taille du logo */
+    height: auto; /* Conserver les proportions du logo */
+    
+}
+
+/* Styles pour le titre principal */
+h1 {
+    color: #333; /* Couleur du texte du titre */
+    font-size: 2em; /* Taille du texte du titre */
+    margin: 0; /* Supprimer la marge par défaut */
 }
 
 /* Styles pour la section principale */
@@ -36,17 +50,21 @@ img {
     height: 30px;
 }
 
+
 /* Styles pour la section des détails du photographe */
+
 #photographer-details {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FAFAFA;
-    margin: 0 50px;
-    padding: 0 20px;
+    background-color:  #ffffff;
+    margin: 0px 60px;
+    padding: 10px;
     border-bottom: 2px solid #FAFAFA;
     text-align: center;
     width: 85%;
+    color: #333; /* Couleur du texte */
+    padding-top: 5px;
 }
 
 #photographer-details div {
@@ -55,6 +73,7 @@ img {
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0;
+    height: 100px;
 }
 
 a {
@@ -101,11 +120,12 @@ a {
 }
 
 /* Styles pour le bouton de contact */
+
 .contact_button {
-    background-color: #901C1C;
-    color: white;
+    background-color:#901C1C;
+    color:#fff;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -117,10 +137,23 @@ a {
 }
 
 .contact_button:hover {
-    background-color: #c94c4c;
+    background-color:#007bff ;
+    
 }
 
+
 /* Styles pour les options de tri */
+
+.sort-options {
+    margin-bottom: 20px; /* Espacement sous les options de tri */
+}
+
+.sort-options label {
+    display: block; /* Forcer le label à occuper une ligne entière */
+    margin-bottom: 8px; /* Espacement sous le label */
+    color: #333; /* Couleur du texte des labels */
+}
+
 .hidden-option {
     display: none;
 }
@@ -131,7 +164,8 @@ a {
     color: #000;
     font-weight: 700;
     font-size: 18px;
-    margin-left: 50px;   
+    margin-left: 50px; 
+    margin-bottom: 0;  
 }
 
 
@@ -144,16 +178,30 @@ a {
 }
 
 /* Styles pour la galerie de médias */
+
 .gallery {
-    display: flex;
+    display: flex; /* Affichage en flexbox pour la galerie */
+    flex-wrap: wrap; /* Enrouler les éléments de la galerie */
+    gap: 10px; /* Espacement entre les éléments */
     justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    align-items: center;
+    
 }
 
+
+/* Styles pour la section des médias */
+.media-section {
+    padding: 20px; /* Espacement interne */
+    background-color: #ffffff; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    padding-top: 0;
+    width: 100%;
+    margin-right: 20px;
+    
+}
 .media {
-    width: 350px;
-    height: 300px;
+    width: 320px;
+    height: 280px;
     object-fit: cover;
     border-radius: 0.5rem;
 }
@@ -178,7 +226,7 @@ h2 {
    
     margin-top: 0;
     color: #901C1C;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -191,26 +239,46 @@ h2 {
 }
 
 /* Styles pour la modale de contact */
-#contact_modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
+/* Styles pour la modale */
+.modal-container {
+    position: fixed; /* Positionner la modale en fixe */
+    top: 0; /* Aligner en haut */
+    left: 0; /* Aligner à gauche */
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex; /* Affichage flex pour centrer la modale */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    z-index: 1000; /* Positionner au-dessus des autres éléments */
 }
 
+/* Styles pour le contenu de la modale */
 .modal {
-    background: #DB8876;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    width: 400px;
-    height: 600px;
-    position: relative;
-    padding-top: 0;  
+    background-color: #fff; /* Couleur de fond de la modale */
+    padding: 20px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    width: 80%; /* Largeur de la modale */
+    max-width: 600px; /* Largeur maximale */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+/* Styles pour le formulaire de contact */
+#contact-form {
+    display: flex; /* Affichage en flexbox */
+    flex-direction: column; /* Disposer les éléments en colonne */
+}
+
+#contact-form label {
+    margin-bottom: 5px; /* Espacement sous le label */
+    color: #333; /* Couleur du texte des labels */
+}
+
+#contact-form input, #contact-form textarea {
+    margin-bottom: 15px; /* Espacement sous les champs de formulaire */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure des champs de formulaire */
+    border-radius: 4px; /* Coins arrondis */
 }
 
 .modal h2 {
@@ -233,21 +301,8 @@ h2 {
     padding: 0;
 }
 
-.modal form {
-    display: flex;
-    flex-direction: column;
-}
-
-.modal form input,
-.modal form textarea {
-    width: 92%;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-}
-
 #message {
-    height: 170px;
+    height: 100px;
 }
 
 .modal form button {
@@ -270,14 +325,56 @@ h2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .closeModal img {
     width: 20px;
     height: 20px;
+    background-color: #901C1C;
+    
 }
 
 /* Styles pour la lightbox */
+/* Styles pour la lightbox */
+.lightbox {
+    position: fixed; /* Positionner en fixe */
+    top: 0; /* Aligner en haut */
+    left: 0; /* Aligner à gauche */
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    display: flex; /* Affichage flex pour centrer la lightbox */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    z-index: 1000; /* Positionner au-dessus des autres éléments */
+}
+
+/* Styles pour les boutons de la lightbox */
+.lightbox-close, .lightbox-prev, .lightbox-next {
+    background: none; /* Pas de fond */
+    border: none; /* Enlever la bordure */
+    color: #fff; /* Couleur du texte */
+    font-size: 24px; /* Taille du texte */
+    cursor: pointer; /* Curseur pointeur */
+    margin: 0 10px; /* Espacement horizontal */
+}
+
+.lightbox-image, .lightbox-video {
+    max-width: 90%; /* Largeur maximale */
+    max-height: 80%; /* Hauteur maximale */
+    display: block; /* Afficher comme bloc */
+    margin: auto; /* Centrer */
+}
+
+/* Styles pour le titre dans la lightbox */
+.lightbox-title {
+    color:#901C1C; /* Couleur du texte */
+    text-align:start; /* Centrer le texte */
+    margin-top: 10px; /* Espacement au-dessus du titre */
+   
+}
+
 .lightbox {
     display: flex;
     flex-direction: column;
@@ -286,11 +383,14 @@ h2 {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
     padding: 10px;
     z-index: 1000;
-   
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .lightbox.hidden {
@@ -298,19 +398,6 @@ h2 {
     opacity: 0;
 }
 
-.lightbox img,
-.lightbox video {
-    max-width: 80%;
-    max-height: 90%;
-}
-
-.lightbox-title {
-    color: #901C1C;
-    font-size: 1em;
-    padding-left: 0;
-    text-align: start;
-    width: 80%;
-}
 
 /* Boutons de la lightbox */
 .lightbox-close,
@@ -346,12 +433,13 @@ h2 {
 }
 
 /* Styles pour le conteneur des likes */
+
 .likes-container {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     margin-top: 10px;
-    margin-right: 70px;
+    margin-right: 105px;
     position: relative;
     bottom: 45px;
 }
@@ -382,17 +470,20 @@ h2 {
 }
 
 /* Styles de base pour le conteneur des likes totaux */
+
 .total-likes-container {
     position:fixed;
-    bottom: 2px;
+    bottom: 0px;
     right: 150px;
+    color: #333; /* Couleur du texte */
     background-color: #DB8876;
-    padding: 5px 20px;
+    padding: 10px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content:center;
     gap: 10px;
+    
 }
 
 .total-likes {
