@@ -239,7 +239,7 @@ h2 {
 }
 
 /* Styles pour la modale de contact */
-/* Styles pour la modale */
+
 .modal-container {
     position: fixed; /* Positionner la modale en fixe */
     top: 0; /* Aligner en haut */
@@ -247,7 +247,7 @@ h2 {
     width: 100%; /* Largeur complète */
     height: 100%; /* Hauteur complète */
     background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    display: flex; /* Affichage flex pour centrer la modale */
+    display: none; /* Affichage flex pour centrer la modale */
     justify-content: center; /* Centrer horizontalement */
     align-items: center; /* Centrer verticalement */
     z-index: 1000; /* Positionner au-dessus des autres éléments */

@@ -24,7 +24,8 @@ async function getPhotographers() {
 }
 
 // Fonction pour créer une carte de photographe
-function createPhotographerCard(photographer) {
+
+function createPhotographerCard (photographer) {
     const article = document.createElement('article');
     article.setAttribute('tabindex', '0'); // Rendre l'article focusable
     article.setAttribute('aria-labelledby', `photographer-${photographer.id}`);
@@ -54,6 +55,8 @@ async function displayData(photographers) {
 
     photographers.forEach((photographer) => {
         console.log('Affichage du photographe :', photographer.name);
+
+        
 
         if (typeof photographerTemplate === 'undefined') {
             console.error('La fonction photographerTemplate n\'est pas définie.');
