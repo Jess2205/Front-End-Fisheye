@@ -70,6 +70,12 @@ function displayModal(photographerName) {
     }
 
     document.getElementById('first-name').focus();
+
+    // Ajouter un gestionnaire d'événements pour la touche "Esc"
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Piéger le focus dans la modale
+    trapFocus(modal);
 }
 
 // Fonction pour fermer la modale
@@ -91,8 +97,6 @@ function closeModal() {
         overlay.setAttribute('aria-hidden', 'true');
         overlay.classList.remove('active');
         console.log("Overlay caché.");
-    } else {
-        console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
     }
 
     const contactButton = document.querySelector('.contact_button');
@@ -102,8 +106,44 @@ function closeModal() {
     } else {
         console.error("L'élément avec la classe 'contact_button' est introuvable.");
     }
+
+    // Retirer le gestionnaire d'événements pour la touche "Esc"
+    document.removeEventListener('keydown', handleKeyPress);
 }
 
+// Gestion de la touche "Esc" pour fermer la modale
+function handleKeyPress(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+}
+
+// Fonction pour piéger le focus dans la modale
+function trapFocus(modal) {
+    const focusableElements = modal.querySelectorAll('input, button, textarea');
+    const firstFocusableElement = focusableElements[0]; // Premier élément focusable
+    const lastFocusableElement = focusableElements[focusableElements.length - 1]; // Dernier élément focusable
+
+    modal.addEventListener('keydown', function(event) {
+        const isTabPressed = (event.key === 'Tab' || event.keyCode === 9);
+
+        if (!isTabPressed) {
+            return;
+        }
+
+        if (event.shiftKey) { // Si "Shift + Tab"
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus();
+                event.preventDefault();
+            }
+        } else { // Si juste "Tab"
+            if (document.activeElement === lastFocusableElement) {
+                firstFocusableElement.focus();
+                event.preventDefault();
+            }
+        }
+    });
+}
 
 // Attacher l'événement de clic au bouton "Contactez-moi"
 document.addEventListener("DOMContentLoaded", function() {
