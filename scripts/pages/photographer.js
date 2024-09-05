@@ -59,6 +59,8 @@ function displayPhotographerData(photographer) {
     const portraitElement = document.createElement('img');
     portraitElement.setAttribute('src', `assets/photographers/${photographer.portrait}`);
     portraitElement.setAttribute('alt', photographer.name);
+    console.log(portraitElement); // Assurez-vous que cet élément est correct
+
 
      // Ajouter les éléments au text container
      infoContainer.appendChild(nameElement);

@@ -2,7 +2,6 @@
 function getPhotographerIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
-    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,11 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Erreur lors du chargement des données:', error));
 });
 
-
-
-function displayMedia(mediaArray) {
+function displayMedia(mediaArray) { // Rendu des médias
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = ''; // Efface tout contenu existant
+    setupKeyboardAccessibility(); // Initialisation de l'accessibilité au clavier
+
 
     mediaArray.forEach(media => {
         const mediaModel = mediaFactory(media);
@@ -55,88 +54,10 @@ function initSort(mediaArray) {
     });
 }
 
-
-
-
-// Les fonctions `mediaFactory`, `updateTotalLikes`, `openLightbox`, etc. restent les mêmes
-
 let currentMediaIndex = 0;
 let mediaItems = [];
 
-function mediaFactory(media) {
-    const { id, title, image, video, likes } = media;
-
-    // Création de l'élément media (image ou vidéo)
-    const mediaElement = document.createElement(image ? 'img' : 'video');
-    const mediaSrc = `assets/media/${image ? image : video}`;
-    
-    mediaElement.setAttribute('src', mediaSrc);
-    mediaElement.setAttribute('alt', title);
-    mediaElement.classList.add('media');
-
-    // Ajouter un attribut data-id pour faciliter l'identification du média
-    mediaElement.setAttribute('data-id', id);
-
-    // Lors de la création d'un média (image ou vidéo), ajouter un événement de clic pour ouvrir la lightbox
-    mediaElement.addEventListener('click', () => openLightbox(id));
-
-    function getMediaCardDOM() {
-        const article = document.createElement('article');
-        article.classList.add('media-item');
-
-        // Création des éléments titre et likes
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = title;
-
-        const likesContainer = document.createElement('div');
-        likesContainer.classList.add('likes-container');
-
-        const likesElement = document.createElement('span');
-        likesElement.classList.add('likes-count');
-        likesElement.textContent = likes;
-
-        const likeButton = document.createElement('button');
-        likeButton.classList.add('like-button');
-        likeButton.innerHTML = '&#10084;'; // icône cœur
-
-        // Gestion du clic sur le bouton like
-        likeButton.addEventListener('click', () => {
-            likesElement.textContent = parseInt(likesElement.textContent) + 1;
-            updateTotalLikes();
-        });
-
-        likesContainer.appendChild(likesElement);
-        likesContainer.appendChild(likeButton);
-
-        // Ajout des éléments au DOM
-        article.appendChild(mediaElement);
-        article.appendChild(titleElement);
-        article.appendChild(likesContainer);
-
-        return article;
-    }
-
-    return { getMediaCardDOM };
-}
-
-// Fonction pour mettre à jour le total des "j'aime"
-function updateTotalLikes() {
-    const likeElements = document.querySelectorAll('.likes-count');
-    let totalLikes = 0; // Replacez par la valeur initiale si nécessaire
-
-    likeElements.forEach(likeElement => {
-        totalLikes += parseInt(likeElement.textContent, 10);
-    });
-
-    document.querySelector('.total-likes').textContent = totalLikes;
-}
-
-// Appeler la fonction pour initialiser le total des "j'aime" lors du chargement du DOM
-document.addEventListener('DOMContentLoaded', () => {
-    updateTotalLikes();
-});
-
-// Fonction pour ouvrir la lightbox avec le média sélectionné
+// Fonction pour ouvrir la lightbox
 function openLightbox(mediaId) {
     const lightbox = document.getElementById('lightbox');
     const mediaItemsElements = document.querySelectorAll('.media-item img, .media-item video');
@@ -147,6 +68,9 @@ function openLightbox(mediaId) {
     const mediaItem = mediaItems[currentMediaIndex];
 
     if (!mediaItem) return;
+
+    // Enlève l'attribut aria-hidden pour rendre la lightbox accessible
+    lightbox.setAttribute('aria-hidden', 'false');
 
     // Remplir la lightbox avec le média sélectionné
     if (mediaItem.tagName === 'IMG') {
@@ -168,13 +92,17 @@ function openLightbox(mediaId) {
     lightbox.classList.remove('hidden');
     lightbox.style.display = 'flex'; // Assurez-vous que la Lightbox est visible
     lightbox.style.opacity = '1';
+
+    // Focus sur le premier élément interactif de la lightbox
+    document.querySelector('.lightbox-close').focus();
 }
 
 // Fonction pour passer au média suivant
 function nextMedia() {
     if (mediaItems.length > 0) {
         currentMediaIndex = (currentMediaIndex + 1) % mediaItems.length;
-        openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+        const newMediaId = mediaItems[currentMediaIndex].getAttribute('data-id');
+        openLightbox(newMediaId);
     }
 }
 
@@ -182,15 +110,40 @@ function nextMedia() {
 function prevMedia() {
     if (mediaItems.length > 0) {
         currentMediaIndex = (currentMediaIndex - 1 + mediaItems.length) % mediaItems.length;
-        openLightbox(mediaItems[currentMediaIndex].getAttribute('data-id'));
+        const newMediaId = mediaItems[currentMediaIndex].getAttribute('data-id');
+        openLightbox(newMediaId);
     }
 }
 
-// Attacher les événements pour les boutons "suivant" et "précédent"
+// Fonction pour configurer l'accessibilité au clavier
+function setupKeyboardAccessibility() {
+    const mediaItemsElements = document.querySelectorAll('.media-item img, .media-item video');
+
+    mediaItemsElements.forEach((mediaItem) => {
+        mediaItem.setAttribute('tabindex', '0'); // Rendre l'élément focusable
+
+        // Gestionnaire de clic pour ouvrir la lightbox
+        mediaItem.addEventListener('click', (event) => {
+            const mediaId = mediaItem.getAttribute('data-id');
+            openLightbox(mediaId);
+            event.stopPropagation(); // Empêche la propagation de l'événement au parent (comme les likes)
+        });
+
+        // Gestionnaire de touche (Enter ou Espace) pour ouvrir la lightbox
+        mediaItem.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                const mediaId = mediaItem.getAttribute('data-id');
+                openLightbox(mediaId);
+                event.preventDefault(); // Empêche l'action par défaut (comme la sélection de texte ou le scroll)
+                event.stopPropagation(); // Empêche la propagation vers d'autres événements (comme les likes)
+            }
+        });
+    });
+}
+
+
 document.querySelector('.lightbox-next').addEventListener('click', nextMedia);
 document.querySelector('.lightbox-prev').addEventListener('click', prevMedia);
-
-// Ajout de la gestion de la fermeture de la lightbox 
 document.querySelector('.lightbox-close').addEventListener('click', () => {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.add('hidden');
@@ -198,7 +151,11 @@ document.querySelector('.lightbox-close').addEventListener('click', () => {
     lightbox.style.display = 'none'; // Assurez-vous que la Lightbox est cachée
 });
 
-// Gestion des événements clavier pour la Lightbox
+document.querySelector('.lightbox-next').setAttribute('tabindex', '0');
+document.querySelector('.lightbox-prev').setAttribute('tabindex', '0');
+document.querySelector('.lightbox-close').setAttribute('tabindex', '0');
+
+
 document.addEventListener('keydown', (e) => {
     const lightbox = document.getElementById('lightbox');
     if (lightbox.style.display === 'flex') {
@@ -208,6 +165,90 @@ document.addEventListener('keydown', (e) => {
             nextMedia();
         } else if (e.key === 'Escape') {
             document.querySelector('.lightbox-close').click(); // Simule un clic sur le bouton de fermeture
+            // Remet aria-hidden pour masquer la lightbox des lecteurs d'écran
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightbox.style.display = 'none';
+            lightbox.style.opacity = '0';
         }
     }
+});
+
+// Appeler la fonction pour configurer l'accessibilité au clavier
+setupKeyboardAccessibility();
+
+function mediaFactory(media) {
+    const { id, title, image, video, likes } = media;
+
+    const mediaElement = document.createElement(image ? 'img' : 'video');
+    const mediaSrc = `assets/media/${image ? image : video}`;
+    
+    mediaElement.setAttribute('src', mediaSrc);
+    mediaElement.setAttribute('alt', title);
+    mediaElement.classList.add('media');
+    mediaElement.setAttribute('data-id', id);
+    mediaElement.setAttribute('tabindex', '0'); // Permettre la navigation clavier
+
+    mediaElement.addEventListener('click', () => openLightbox(id));
+
+    // Gestion du focus clavier pour ouvrir la lightbox
+    mediaElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            openLightbox(id); // Ouvre la lightbox lors de la touche "Entrée" ou "Espace"
+            event.preventDefault(); // Empêche le comportement par défaut du navigateur
+        }
+    });
+
+    function getMediaCardDOM() {
+        const article = document.createElement('article');
+        article.classList.add('media-item');
+
+        const titleElement = document.createElement('h2');
+        titleElement.textContent = title;
+
+        const likesContainer = document.createElement('div');
+        likesContainer.classList.add('likes-container');
+
+        const likesElement = document.createElement('span');
+        likesElement.classList.add('likes-count');
+        likesElement.textContent = likes;
+
+        const likeButton = document.createElement('button');
+        likeButton.classList.add('like-button');
+        likeButton.innerHTML = '&#10084;';
+
+        likeButton.addEventListener('click', (event) => {
+            likesElement.textContent = parseInt(likesElement.textContent) + 1;
+            updateTotalLikes();
+            event.stopPropagation();
+        });
+
+        likesContainer.appendChild(likesElement);
+        likesContainer.appendChild(likeButton);
+
+        article.appendChild(mediaElement);
+        article.appendChild(titleElement);
+        article.appendChild(likesContainer);
+
+        return article;
+    }
+
+    return { getMediaCardDOM };
+}
+
+
+// Fonction pour mettre à jour le total des "j'aime"
+function updateTotalLikes() {
+    const likeElements = document.querySelectorAll('.likes-count');
+    let totalLikes = 0; // Replacez par la valeur initiale si nécessaire
+
+    likeElements.forEach(likeElement => {
+        totalLikes += parseInt(likeElement.textContent, 10);
+    });
+
+    document.querySelector('.total-likes').textContent = totalLikes;
+}
+
+// Appeler la fonction pour initialiser le total des "j'aime" lors du chargement du DOM
+document.addEventListener('DOMContentLoaded', () => {
+    updateTotalLikes();
 });

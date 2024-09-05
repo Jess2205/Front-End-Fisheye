@@ -104,6 +104,7 @@ function closeModal() {
     }
 }
 
+
 // Attacher l'événement de clic au bouton "Contactez-moi"
 document.addEventListener("DOMContentLoaded", function() {
     const contactButton = document.querySelector('.contact_button');

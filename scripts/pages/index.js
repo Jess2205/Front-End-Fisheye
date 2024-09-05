@@ -23,6 +23,30 @@ async function getPhotographers() {
 
 }
 
+// Fonction pour créer une carte de photographe
+function createPhotographerCard(photographer) {
+    const article = document.createElement('article');
+    article.setAttribute('tabindex', '0'); // Rendre l'article focusable
+    article.setAttribute('aria-labelledby', `photographer-${photographer.id}`);
+
+    article.innerHTML = `
+        <h2 id="photographer-${photographer.id}">${photographer.name}</h2>
+        <img src="${photographer.picture}" alt="Portrait de ${photographer.name}" />
+        <p>${photographer.city}, ${photographer.country}</p>
+        <p>${photographer.tagline}</p>
+        <a href="contact.html?photographer=${photographer.id}" aria-label="Contacter ${photographer.name}">Contactez-moi</a>
+    `;
+
+    // Gestion des événements clavier pour l'article
+    article.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            window.location.href = `contact.html?photographer=${photographer.id}`;
+        }
+    });
+
+    return article;
+}
+
 // Fonction pour afficher les données des photographes sur la page
 async function displayData(photographers) {
     console.log('Début de l\'affichage des photographes.');
