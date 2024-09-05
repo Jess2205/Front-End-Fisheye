@@ -36,7 +36,6 @@ function displayPhotographerData(photographer) {
         return;
     }
 
-
     // Vider le conteneur avant d'ajouter de nouveaux éléments
     detailsContainer.innerHTML = '';
 
@@ -54,17 +53,15 @@ function displayPhotographerData(photographer) {
     const taglineElement = document.createElement('span');
     taglineElement.textContent = photographer.tagline;
 
-    
     const portraitElement = document.createElement('img');
     portraitElement.setAttribute('src', `assets/photographers/${photographer.portrait}`);
     portraitElement.setAttribute('alt', photographer.name);
     console.log(portraitElement); // Assurez-vous que cet élément est correct
 
-
-     // Ajouter les éléments au text container
-     infoContainer.appendChild(nameElement);
-     infoContainer.appendChild(cityElement);
-     infoContainer.appendChild(taglineElement);
+    // Ajouter les éléments au text container
+    infoContainer.appendChild(nameElement);
+    infoContainer.appendChild(cityElement);
+    infoContainer.appendChild(taglineElement);
 
     // Ajouter les éléments au conteneur de détails
     detailsContainer.appendChild(infoContainer);
@@ -81,7 +78,6 @@ function displayMediaData(mediaList) {
         return;
     }
 
-
     mediaSection.innerHTML = ''; // Vider la section des médias
 
     mediaList.forEach(media => {
@@ -94,7 +90,7 @@ function displayMediaData(mediaList) {
         const mediaCard = mediaFactory(media);
         mediaSection.appendChild(mediaCard.getMediaCardDOM());
     });
- }
+}
 
 // Fonction d'initialisation pour charger les données au chargement de la page
 async function init() {
@@ -119,14 +115,3 @@ async function init() {
 
 // Appel de la fonction d'initialisation
 init();
-
-fetch('../data/photographers.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erreur de chargement du fichier JSON');
-    }
-    return response.json();
-  })
-  .then(data => console.log('Données JSON:', data))
-  .catch(error => console.error('Erreur:', error));
-
