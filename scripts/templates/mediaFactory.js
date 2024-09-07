@@ -239,7 +239,9 @@ function mediaFactory(media) {
 
         const likeButton = document.createElement('button');
         likeButton.classList.add('like-button');
-        likeButton.innerHTML = '&#10084;';
+        likeButton.innerHTML = '&#10084;';// Symbole du coeur
+        // Ajouter l'attribut aria-label pour l'accessibilité
+        likeButton.setAttribute('aria-label', 'Liker ce média');
 
         likeButton.addEventListener('click', (event) => {
             likesElement.textContent = parseInt(likesElement.textContent) + 1;
