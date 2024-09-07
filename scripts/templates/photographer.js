@@ -18,7 +18,7 @@ function photographerTemplate(data) {
 
         const img = document.createElement('img');
         img.setAttribute('src', picture);
-        img.setAttribute('alt', ""); // Texte alternatif vide pour accessibilité
+        img.setAttribute('alt', `Portrait de ${name}`); // Texte alternatif descriptif
         img.classList.add('photographer-img');
 
         const h2 = document.createElement('h2');
@@ -77,7 +77,7 @@ function photographerTemplate(data) {
 
         const img = document.createElement('img');
         img.setAttribute('src', picture);
-        img.setAttribute('alt', name);
+        img.setAttribute('alt', `Portrait de ${name}`); // Texte alternatif descriptif
         img.classList.add('photographer-img');
 
         infoContainer.appendChild(h2);
