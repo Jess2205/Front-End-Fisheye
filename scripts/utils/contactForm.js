@@ -45,15 +45,14 @@ function displayModal(photographerName) {
     const modal = document.getElementById("contact_modal");
     const overlay = document.querySelector('.modal_overlay');
     const nameElement = document.getElementById('modal-photographer-name');
+    const firstNameInput = document.getElementById('first-name');
 
     if (nameElement) {
         nameElement.textContent = photographerName;
-        console.log('Nom du photographe affiché dans la modale:', photographerName);
     } else {
         console.error("L'élément avec l'ID 'modal-photographer-name' est introuvable.");
     }
 
-    // Afficher la modale et l'overlay
     if (modal) {
         modal.style.display = "flex";
         modal.setAttribute('aria-hidden', 'false');
@@ -64,19 +63,20 @@ function displayModal(photographerName) {
     if (overlay) {
         overlay.setAttribute('aria-hidden', 'false');
         overlay.classList.add('active');
-        console.log("Overlay affiché.");
     } else {
         console.error("L'élément avec la classe 'modal_overlay' est introuvable.");
     }
 
-    document.getElementById('first-name').focus();
+    if (firstNameInput) {
+        firstNameInput.focus();
+    } else {
+        console.error("L'élément avec l'ID 'first-name' est introuvable.");
+    }
 
-    // Ajouter un gestionnaire d'événements pour la touche "Esc"
     document.addEventListener('keydown', handleKeyPress);
-
-    // Piéger le focus dans la modale
     trapFocus(modal);
 }
+
 
 // Fonction pour fermer la modale
 function closeModal() {
