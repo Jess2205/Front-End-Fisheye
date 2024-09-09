@@ -146,12 +146,14 @@ a {
 
 .sort-options {
     margin-bottom: 20px; /* Espacement sous les options de tri */
+    
 }
 
 .sort-options label {
     display: block; /* Forcer le label à occuper une ligne entière */
     margin-bottom: 8px; /* Espacement sous le label */
     color: #333; /* Couleur du texte des labels */
+   
 }
 
 .hidden-option {
@@ -169,13 +171,57 @@ a {
 }
 
 
+/* Style de base pour le select */
 #sort {
-    padding: 0.5rem;
-    margin-bottom: 10px;
-    color: white;
-    background-color: #901C1C;
-    font-size: 18px;
+    -webkit-appearance: none;  /* Masque la flèche par défaut pour Safari */
+    -moz-appearance: none;     /* Masque la flèche par défaut pour Firefox */
+    appearance: none;          /* Masque la flèche par défaut pour les autres navigateurs */
+    
+    /* Ajouter la flèche montante personnalisée */
+    background: url('/css/fleche-vers-le-haut.png') no-repeat right center;
+    background-size: 1em;
+    padding-right: 2em; /* Espace pour la flèche */
+    
+    /* Centrer la flèche avec un décalage du bord droit */
+    background-position: calc(100% - 1em) center; /* Décalage de la flèche à 1em du bord */
+    background-size: 1em; /* Taille de la flèche (ajuste si nécessaire) */
+    
+    
+     /* Centrer le texte */
+     text-align: center;
+
+      /* Centrer verticalement le texte en fonction de la hauteur */
+    line-height: 2em;
+    
+    /* Définir la couleur de fond */
+    background-color:#901C1C; 
+    
+    
+    /* Couleur du texte */
+    color:#f2f2f2; 
+    font-weight: 400;
+    
+    
+    /* Styles supplémentaires pour l'apparence */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 2em;
+    font-size: 1em;
+    
+    
 }
+
+
+
+/* Ajouter une bordure et des couleurs différentes lorsque le select est en focus */
+#sort:focus {
+    outline: none; /* Retirer la bordure de focus par défaut */
+    border-color: #666; /* Couleur de bordure lors du focus */    
+    /* Couleur du texte au focus (facultatif) */
+    color:white; 
+    
+}
+
 
 /* Styles pour la galerie de médias */
 

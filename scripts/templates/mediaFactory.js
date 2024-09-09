@@ -34,8 +34,13 @@ function displayMedia(mediaArray) { // Rendu des médias
 }
 
 function initSort(mediaArray) {
-    document.getElementById('sort').addEventListener('change', function() {
+    const selectElement = document.getElementById('sort');
+    
+    selectElement.addEventListener('change', function() {
         const sortBy = this.value;
+
+        // Met à jour l'attribut data-sort pour changer l'icône si nécessaire
+        selectElement.setAttribute('data-sort', sortBy);
 
         switch(sortBy) {
             case 'date':
@@ -53,6 +58,7 @@ function initSort(mediaArray) {
         displayMedia(mediaArray);
     });
 }
+
 
 let currentMediaIndex = 0;
 let mediaItems = [];
