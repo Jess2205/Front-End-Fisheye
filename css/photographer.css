@@ -153,6 +153,7 @@ a {
     display: block; /* Forcer le label à occuper une ligne entière */
     margin-bottom: 8px; /* Espacement sous le label */
     color: #333; /* Couleur du texte des labels */
+    
    
 }
 
@@ -165,9 +166,10 @@ a {
     align-items: center;
     color: #000;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 50px; 
-    margin-bottom: 0;  
+    margin-bottom: 0;
+    
 }
 
 
@@ -180,7 +182,7 @@ a {
     /* Ajouter la flèche montante personnalisée */
     background: url('/css/fleche-vers-le-haut.png') no-repeat right center;
     background-size: 1em;
-    padding-right: 2em; /* Espace pour la flèche */
+    padding-right: 3em; /* Espace pour la flèche */
     
     /* Centrer la flèche avec un décalage du bord droit */
     background-position: calc(100% - 1em) center; /* Décalage de la flèche à 1em du bord */
@@ -188,10 +190,11 @@ a {
     
     
      /* Centrer le texte */
-     text-align: center;
+     padding-left: 20px;
 
       /* Centrer verticalement le texte en fonction de la hauteur */
     line-height: 2em;
+    align-items: center;
     
     /* Définir la couleur de fond */
     background-color:#901C1C; 
