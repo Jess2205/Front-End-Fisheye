@@ -207,7 +207,7 @@ document.addEventListener('keydown', (e) => {
 // Appeler la fonction pour configurer l'accessibilité au clavier
 setupKeyboardAccessibility();
 
-function mediaFactory(media) {
+export function mediaFactory(media) {
     const { id, title, image, video, likes } = media;
 
     const mediaElement = document.createElement(image ? 'img' : 'video');

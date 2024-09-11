@@ -1,5 +1,6 @@
 
 // scripts/pages/index.js
+import { photographerTemplate } from '../templates/photographer.js';
 
 // Fonction pour récupérer les photographes depuis le fichier JSON
 
@@ -65,7 +66,7 @@ async function displayData(photographers) {
             console.error('La fonction photographerTemplate n\'est pas définie.');
             return;
         }
-        // eslint-disable-next-line no-undef
+        
         const photographerModel = photographerTemplate(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);

@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function photographerTemplate(data) {
+
+export function photographerTemplate(data) {
     const { name, city, country, tagline, price, portrait, id } = data;
     const picture = `assets/photographers/${portrait}`;
 

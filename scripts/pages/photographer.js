@@ -1,3 +1,9 @@
+// scripts/pages/index.js
+
+import { mediaFactory } from '../templates/mediaFactory.js';
+
+
+
 // Fonction pour obtenir les données d'un photographe en fonction de son ID
 async function getPhotographerData(id) {
     console.log(`Récupération des données pour le photographe avec l'ID: ${id}`);
@@ -69,7 +75,7 @@ function displayPhotographerData(photographer) {
 }
 
 // Fonction pour afficher les médias du photographe sur la page
-function displayMediaData(mediaList) {
+export function displayMediaData(mediaList) {
     console.log('Affichage des médias du photographe:', mediaList);
     
     const mediaSection = document.querySelector('.gallery');
@@ -86,7 +92,7 @@ function displayMediaData(mediaList) {
             console.error('La fonction mediaFactory n\'est pas définie.');
             return;
         }
-        // eslint-disable-next-line no-undef
+        
         const mediaCard = mediaFactory(media);
         mediaSection.appendChild(mediaCard.getMediaCardDOM());
     });
