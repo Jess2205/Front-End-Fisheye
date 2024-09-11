@@ -8,26 +8,30 @@ body {
 
 /* Styles pour l'en-tête */
 header {
-    margin-bottom: 0;
+    
     text-align: center;
-    background-color: #f5f5f5; /* Couleur de fond de l'en-tête */
-    padding: 10px; /* Espacement interne */
+    background-color: white; /* Couleur de fond de l'en-tête */
+   
     text-align:left; 
     padding-bottom: 0;
 }
 
 .logo {
-    padding-left: 90px;
+    padding-left: 80px;
     max-width: 150px; /* Limiter la taille du logo */
     height: auto; /* Conserver les proportions du logo */
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
 
 /* Styles pour le titre principal */
 h1 {
-    color:#901C1C; /* Couleur du texte du titre */
-    font-size: 24px; /* Taille du texte du titre */
+    color: #D3573C;
+    ; /* Couleur du texte du titre */
+    font-size: 44px; /* Taille du texte du titre */
     margin: 0; /* Supprimer la marge par défaut */
+    font-weight: 400;
 }
 
 /* Styles pour la section principale */
@@ -57,14 +61,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:  #ffffff;
+    background-color: #FAFAFA;
     margin: 0px 60px;
-    padding: 10px;
     border-bottom: 2px solid #FAFAFA;
     text-align: center;
     width: 85%;
     color: #333; /* Couleur du texte */
-    padding-top: 5px;
+   
+    
 }
 
 #photographer-details div {
@@ -74,6 +78,7 @@ img {
     align-items: flex-start;
     margin: 0;
     height: 100px;
+    padding-left: 30px;
 }
 
 a {
@@ -101,10 +106,11 @@ a {
 }
 
 #photographer-details img {
-    width: 200px;
-    height: 120px;
-    object-fit: cover;
     border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 /* Responsive design pour les petits écrans */
@@ -130,10 +136,11 @@ a {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-top: 0;
-    width: 170px;
+    width: 180px;
     height: 59px;
-    font-size: 20px;
-    margin-bottom: 130px;
+    font-size: 18px;
+    margin-bottom: 180px;
+    
 }
 
 .contact_button:hover {
@@ -145,13 +152,13 @@ a {
 /* Styles pour les options de tri */
 
 .sort-options {
-    margin-bottom: 20px; /* Espacement sous les options de tri */
+    margin-bottom: 0; /* Espacement sous les options de tri */
     
 }
 
 .sort-options label {
     display: block; /* Forcer le label à occuper une ligne entière */
-    margin-bottom: 8px; /* Espacement sous le label */
+    margin-bottom: 30px; /* Espacement sous le label */
     color: #333; /* Couleur du texte des labels */
     
    
@@ -182,10 +189,10 @@ a {
     /* Ajouter la flèche montante personnalisée */
     background: url('/assets/icons/fleche-vers-le-haut.png') no-repeat right center;
     background-size: 1em;
-    padding-right: 3em; /* Espace pour la flèche */
+    padding-right: 2em; /* Espace pour la flèche */
     
     /* Centrer la flèche avec un décalage du bord droit */
-    background-position: calc(100% - 1em) center; /* Décalage de la flèche à 1em du bord */
+    background-position: calc(100% - 0.5em) center; /* Décalage de la flèche à 1em du bord */
     background-size: 1em; /* Taille de la flèche (ajuste si nécessaire) */
     
     
@@ -208,8 +215,10 @@ a {
     /* Styles supplémentaires pour l'apparence */
     border: 1px solid #ccc;
     border-radius: 4px;
-    height: 2em;
-    font-size: 1em;
+    height: 2.5em;
+    font-size: 16px;
+    margin-left: 20px;
+   
     
     
 }
@@ -252,7 +261,7 @@ a {
     width: 320px;
     height: 280px;
     object-fit: cover;
-    border-radius: 0.5rem;
+   
 }
 
 .media img,
@@ -304,11 +313,10 @@ h2 {
 
 /* Styles pour le contenu de la modale */
 .modal {
-    background-color: #fff; /* Couleur de fond de la modale */
-    padding: 20px; /* Espacement interne */
-    border-radius: 5px; /* Coins arrondis */
-    width: 80%; /* Largeur de la modale */
-    max-width: 600px; /* Largeur maximale */
+    background-color:#DB8876; /* Couleur de fond de la modale */
+    padding: 10px; /* Espacement interne */
+    padding-top: 0;
+    width: 27%; /* Largeur de la modale */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre portée */
 }
 
@@ -319,20 +327,25 @@ h2 {
 }
 
 #contact-form label {
-    margin-bottom: 5px; /* Espacement sous le label */
-    color: #333; /* Couleur du texte des labels */
+    font-size: 24px;
+    color:#312E2E; /* Couleur du texte des labels */
 }
 
 #contact-form input, #contact-form textarea {
-    margin-bottom: 15px; /* Espacement sous les champs de formulaire */
-    padding: 10px; /* Espacement interne */
-    border: 1px solid #ccc; /* Bordure des champs de formulaire */
-    border-radius: 4px; /* Coins arrondis */
+    margin-bottom: 15px;
+    /*Espacementsousleschampsdeformulaire*/padding: 10px;
+    /*Espacementinterne*/border: 1px solid #ccc;
+    /*Borduredeschampsdeformulaire*/border-radius: 5px;
+     /* Coins arrondis */:;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 .modal h2 {
     color: #000;
-    font-size: 28px;
+    font-size: 38px;
     padding: 0;
    text-align:left;
     margin-top: 10px;
@@ -340,7 +353,7 @@ h2 {
 
 .modal span {
     display: flex;
-    font-size: 28px;
+    font-size: 38px;
 }
 
 .modal header {
@@ -348,6 +361,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    background-color:#DB8876;
 }
 
 #message {
@@ -356,31 +370,39 @@ h2 {
 
 .modal form button {
     align-self: flex-start;
-    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 700;
     width: 140px;
     height: 59px;
     background: #901C1C;
     color: #f2f2f2;
-    border-color: #901C1C;
+    border: none;
+    
 }
 
 /* Styles pour le bouton de fermeture de la modale */
 .closeModal {
-    width: 10%;
-    background: transparent;
-    border: none;
+    width: 2%;
+    height: 4%;
+    position: fixed;
+    top:7%;
+    left: 60%;
     padding: 0;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    border: none;
     
 }
 
 .closeModal img {
-    width: 20px;
-    height: 20px;
-    background-color: #901C1C;
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    top:7%;
+   
     
 }
 
@@ -388,59 +410,38 @@ h2 {
 /* Styles pour la lightbox */
 .lightbox {
     position: fixed; /* Positionner en fixe */
-    top: 0; /* Aligner en haut */
-    left: 0; /* Aligner à gauche */
-    width: 100%; /* Largeur complète */
-    height: 100%; /* Hauteur complète */
+    top: 50%; /* Aligner en haut */
+    left: 50%; /* Aligner à gauche */
+    width: 1342px; /* Largeur complète */
+    height: 900px; /* Hauteur complète */
     background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
     display: flex; /* Affichage flex pour centrer la lightbox */
     justify-content: center; /* Centrer horizontalement */
     align-items: center; /* Centrer verticalement */
     z-index: 1000; /* Positionner au-dessus des autres éléments */
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: white;
+    flex-direction: column;
+    padding: 10px;
 }
+
+
+
 
 /* Styles pour les boutons de la lightbox */
 .lightbox-close, .lightbox-prev, .lightbox-next {
     background: none; /* Pas de fond */
     border: none; /* Enlever la bordure */
     color: #fff; /* Couleur du texte */
-    font-size: 24px; /* Taille du texte */
+    font-size: 22px; /* Taille du texte */
     cursor: pointer; /* Curseur pointeur */
     margin: 0 10px; /* Espacement horizontal */
 }
 
-.lightbox-image, .lightbox-video {
-    max-width: 90%; /* Largeur maximale */
-    max-height: 80%; /* Hauteur maximale */
-    display: block; /* Afficher comme bloc */
-    margin: auto; /* Centrer */
-}
-
-/* Styles pour le titre dans la lightbox */
-.lightbox-title {
-    color:#901C1C; /* Couleur du texte */
-    text-align:start; /* Centrer le texte */
-    margin-top: 10px; /* Espacement au-dessus du titre */
-   
-}
-
-.lightbox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    background-color: white;
-    padding: 10px;
-    z-index: 1000;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 
 .lightbox.hidden {
     visibility: hidden;
@@ -456,30 +457,61 @@ h2 {
     background: none;
     border: none;
     color: #901C1C;
-    font-size: 2em;
+    font-size: 2.5em;
     cursor: pointer;
 }
 
 .lightbox-close {
-    top: 10px;
-    right: 5px;
+    bottom: 670px;
+    right: 380px;
+    
 }
 
 .lightbox-prev {
     top: 50%;
-    left: 10px;
+    left: 300px;
     transform: translateY(-50%);
 }
 
 .lightbox-next {
+    right: 300px;
     top: 50%;
-    right: 10px;
     transform: translateY(-50%);
 }
+
+/* Styles pour les images et vidéos dans la lightbox */
+.lightbox-image, 
+.lightbox-video {
+    width: 500px; /* Largeur maximale pour prendre presque tout l'écran */
+    height: 500px; /* Hauteur maximale ajustée */
+    object-fit:cover;
+    margin: 0 auto; /* Centrer */
+    display: block;
+   
+    
+}
+
+
+/* Styles pour le titre dans la lightbox */
+.lightbox-title {
+    color: #901C1C; /* Couleur du texte */
+    text-align: left; /* Aligner à gauche */
+    width: 95%; /* Largeur ajustée pour s'aligner avec l'image/vidéo */
+    margin-top: 10px; /* Espacement au-dessus du titre */
+    font-size: 18px; /* Taille du texte */
+    padding-left: 5px; /* Un peu d'espace pour le texte à gauche */
+    align-self: flex-start; /* Aligne le titre à gauche en dessous de l'image/vidéo */
+    position: fixed;
+    z-index: 1000;
+    top: 77%;
+    left: 31%; 
+}
+  
 
 .lightbox-video {
     display: none;
 }
+
 
 /* Styles pour le conteneur des likes */
 

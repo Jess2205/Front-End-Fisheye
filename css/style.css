@@ -1,6 +1,14 @@
 /* Importation des styles depuis un autre fichier CSS */
 @import url("photographer.css");
 
+:focus {
+    outline: 2px solid black; /* Modifie l'épaisseur et la couleur de la bordure */
+    outline-offset:  25px; /* Ajoute un espace autour de la bordure */
+    
+    
+  }
+  
+  
 /* Styles de base pour le corps de la page */
 body {
     font-family: "DM Sans", sans-serif;
@@ -27,7 +35,7 @@ header {
 
 /* Styles pour le titre principal */
 h1 {
-    color: #333; /* Couleur du texte du titre */
+    color:#901C1C; /* Couleur du texte du titre */
     font-size: 2em;
     margin: 20px 100px;
     height: auto;    
@@ -37,9 +45,13 @@ h1 {
 /* Styles pour le logo */
 .logo {
 
-    max-width: 150px; /* Limiter la taille du logo */
+    width: 150px; /* Limiter la taille du logo */
     height: auto; /* Conserver les proportions du logo */
     margin-left: 80px;
+}
+
+:focus .logo {
+    outline: 0;
 }
 
 /* Styles pour la section des photographes */

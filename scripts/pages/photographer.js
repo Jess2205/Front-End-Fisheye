@@ -44,10 +44,10 @@ function displayPhotographerData(photographer) {
     infoContainer.classList.add('text-container'); // Ajouter la classe 'text-container'
 
     // Créer et ajouter les éléments avec les données du photographe
-    const nameElement = document.createElement('h2');
+    const nameElement = document.createElement('h1');
     nameElement.textContent = photographer.name;
 
-    const cityElement = document.createElement('h1');
+    const cityElement = document.createElement('span');
     cityElement.textContent = `${photographer.city}, ${photographer.country}`;
 
     const taglineElement = document.createElement('span');
