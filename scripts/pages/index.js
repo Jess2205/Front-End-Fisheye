@@ -24,8 +24,8 @@ async function getPhotographers() {
 }
 
 // Fonction pour créer une carte de photographe
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function createPhotographerCard(photographer) {
+
+export function createPhotographerCard(photographer) {
     const article = document.createElement('article');
     article.setAttribute('tabindex', '0'); // Rendre l'article focusable
     article.setAttribute('aria-labelledby', `photographer-${photographer.id}`);
