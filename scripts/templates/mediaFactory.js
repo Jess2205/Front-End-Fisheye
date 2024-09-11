@@ -250,10 +250,14 @@ function mediaFactory(media) {
         likeButton.setAttribute('aria-label', 'Liker ce média');
 
         likeButton.addEventListener('click', (event) => {
+            // Augmente le nombre de likes uniquement au premier clic
             likesElement.textContent = parseInt(likesElement.textContent) + 1;
             updateTotalLikes();
             event.stopPropagation();
-        });
+        
+            // Bloque le bouton après le premier clic en supprimant l'événement
+            likeButton.disabled = true; // Désactive le bouton pour empêcher d'autres clics
+    });
 
         likesContainer.appendChild(likesElement);
         likesContainer.appendChild(likeButton);

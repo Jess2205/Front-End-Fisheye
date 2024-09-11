@@ -335,12 +335,11 @@ h2 {
     margin-bottom: 15px;
     /*Espacementsousleschampsdeformulaire*/padding: 10px;
     /*Espacementinterne*/border: 1px solid #ccc;
-    /*Borduredeschampsdeformulaire*/border-radius: 5px;
-     /* Coins arrondis */:;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+     /*Borduredeschampsdeformulaire*/border-radius: 5px;
 }
 
 .modal h2 {
