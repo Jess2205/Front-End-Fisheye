@@ -10,18 +10,16 @@ body {
 
 /* Styles pour l'en-tête */
 header {
-    
     text-align: center;
     background-color: white; /* Couleur de fond de l'en-tête */
-   
     text-align:left; 
     padding-bottom: 0;
 }
 
 .logo {
     padding-left: 80px;
-    max-width: 150px; /* Limiter la taille du logo */
-    height: auto; /* Conserver les proportions du logo */
+    max-width: 150px; /* Limite la taille du logo */
+    height: auto; /* Conserve les proportions du logo */
     padding-top: 10px;
     padding-bottom: 10px;
     
@@ -32,7 +30,7 @@ h1 {
     color: #D3573C;
     ; /* Couleur du texte du titre */
     font-size: 44px; /* Taille du texte du titre */
-    margin: 0; /* Supprimer la marge par défaut */
+    margin: 0; /* Supprime la marge par défaut */
     font-weight: 400;
 }
 
@@ -68,8 +66,7 @@ img {
     text-align: center;
     width: 85%;
     color: #333; /* Couleur du texte */
-   
-    
+     
 }
 
 #photographer-details div {
@@ -149,20 +146,16 @@ a {
     
 }
 
-
 /* Styles pour les options de tri */
-
 .sort-options {
-    margin-bottom: 0; /* Espacement sous les options de tri */
-    
+    margin-bottom: 0; /* Espacement sous les options de tri */  
 }
 
 .sort-options label {
-    display: block; /* Forcer le label à occuper une ligne entière */
+    display: block; /* Force le label à occuper une ligne entière */
     margin-bottom: 30px; /* Espacement sous le label */
     color: #333; /* Couleur du texte des labels */
-    
-   
+     
 }
 
 .hidden-option {
@@ -176,10 +169,8 @@ a {
     font-weight: 700;
     font-size: 16px;
     margin-left: 50px; 
-    margin-bottom: 0;
-    
+    margin-bottom: 0;   
 }
-
 
 /* Style de base pour le select */
 #sort {
@@ -187,66 +178,53 @@ a {
     -moz-appearance: none;     /* Masque la flèche par défaut pour Firefox */
     appearance: none;          /* Masque la flèche par défaut pour les autres navigateurs */
     
-    /* Ajouter la flèche montante personnalisée */
+    /* Ajout de la flèche montante personnalisée */
     background: url('/assets/icons/fleche-vers-le-haut.png') no-repeat right center;
     background-size: 1em;
     padding-right: 2em; /* Espace pour la flèche */
     
-    /* Centrer la flèche avec un décalage du bord droit */
+    /* Centre la flèche avec un décalage du bord droit */
     background-position: calc(100% - 0.5em) center; /* Décalage de la flèche à 1em du bord */
-    background-size: 1em; /* Taille de la flèche (ajuste si nécessaire) */
+    background-size: 1em; /* Taille de la flèche */
     
-    
-     /* Centrer le texte */
-     padding-left: 20px;
+    /* Centre le texte */
+    padding-left: 20px;
 
-      /* Centrer verticalement le texte en fonction de la hauteur */
+    /* Centre verticalement le texte en fonction de la hauteur */
     line-height: 2em;
     align-items: center;
     
-    /* Définir la couleur de fond */
+    /* Défini la couleur de fond */
     background-color:#901C1C; 
-    
     
     /* Couleur du texte */
     color:#f2f2f2; 
     font-weight: 400;
-    
     
     /* Styles supplémentaires pour l'apparence */
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 2.5em;
     font-size: 16px;
-    margin-left: 20px;
-   
-    
-    
+    margin-left: 20px;    
 }
 
-
-
-/* Ajouter une bordure et des couleurs différentes lorsque le select est en focus */
+/* Ajoute d'une bordure et des couleurs différentes lorsque le select est en focus */
 #sort:focus {
     outline: none; /* Retirer la bordure de focus par défaut */
     border-color: #666; /* Couleur de bordure lors du focus */    
     /* Couleur du texte au focus (facultatif) */
-    color:white; 
-    
+    color:white;    
 }
-
 
 /* Styles pour la galerie de médias */
-
 .gallery {
     display: flex; /* Affichage en flexbox pour la galerie */
-    flex-wrap: wrap; /* Enrouler les éléments de la galerie */
+    flex-wrap: wrap; /* Enroule les éléments de la galerie */
     gap: 10px; /* Espacement entre les éléments */
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;   
 }
-
 
 /* Styles pour la section des médias */
 .media-section {
@@ -280,8 +258,7 @@ article {
 }
 
 /* Styles pour les titres */
-h2 {
-   
+h2 {  
     margin-top: 0;
     color: #901C1C;
     font-size: 20px;
@@ -297,18 +274,17 @@ h2 {
 }
 
 /* Styles pour la modale de contact */
-
 .modal-container {
-    position: fixed; /* Positionner la modale en fixe */
-    top: 0; /* Aligner en haut */
-    left: 0; /* Aligner à gauche */
+    position: fixed; /* Positionne la modale en fixe */
+    top: 0; /* Aligne en haut */
+    left: 0; /* Aligne à gauche */
     width: 100%; /* Largeur complète */
     height: 100%; /* Hauteur complète */
     background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
     display: none; /* Affichage flex pour centrer la modale */
-    justify-content: center; /* Centrer horizontalement */
-    align-items: center; /* Centrer verticalement */
-    z-index: 1000; /* Positionner au-dessus des autres éléments */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000; /* Positionne au-dessus des autres éléments */
 }
 
 /* Styles pour le contenu de la modale */
@@ -323,7 +299,7 @@ h2 {
 /* Styles pour le formulaire de contact */
 #contact-form {
     display: flex; /* Affichage en flexbox */
-    flex-direction: column; /* Disposer les éléments en colonne */
+    flex-direction: column; /* Dispose les éléments en colonne */
 }
 
 #contact-form label {
@@ -333,13 +309,13 @@ h2 {
 
 #contact-form input, #contact-form textarea {
     margin-bottom: 15px;
-    /*Espacementsousleschampsdeformulaire*/padding: 10px;
-    /*Espacementinterne*/border: 1px solid #ccc;
+    padding: 10px;/*Espacementsousleschampsdeformulaire*/
+    border: 1px solid #ccc;/*Espacementinterne*/
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-     /*Borduredeschampsdeformulaire*/border-radius: 5px;
+    border-radius: 5px; /*Borduredeschampsdeformulaire*/
 }
 
 .modal h2 {
@@ -375,35 +351,16 @@ h2 {
     height: 59px;
     background: #901C1C;
     color: #f2f2f2;
-    border: none;
-    
+    border: none;   
 }
 
 /* Styles pour le bouton de fermeture de la modale */
 .closeModal {
     float:right;
     margin-bottom: 55px;
-   
-   
     background-color: transparent;
     border: none;
-    z-index: 1000; /* Assurez-vous qu'il est au-dessus de la modale */
-}
-
-/* Ajustement pour les grands écrans */
-@media (min-width: 1440px) {
-    .closeModal {
-        top: 20px; /* Ajuster si nécessaire */
-        right: 20px; /* Ajuster si nécessaire */
-    }
-}
-
-/* Ajustement pour les écrans moyens (1440px à 768px) */
-@media (max-width: 1440px) and (min-width: 768px) {
-    .closeModal {
-        top: 15px; /* Ajuster la position du haut */
-        right: 15px; /* Ajuster la position de la droite */
-    }
+    z-index: 1000; 
 }
 
 
@@ -413,21 +370,19 @@ h2 {
 }
 
 /* Styles pour la lightbox */
-/* Styles pour la lightbox */
 .lightbox {
-    position: fixed; /* Fixer la lightbox à l'écran */
+    position: fixed; /* Fixe la lightbox à l'écran */
     top: 0;
     left: 0;
     width: 100%; /* Prendre toute la largeur de l'écran */
     height: 100%; /* Prendre toute la hauteur de l'écran */
     background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
     display: flex;
-    flex-direction: column; /* Placer l'image et le titre verticalement */
-    justify-content: flex-start; /* Commencer à partir du haut */
-    align-items: center; /* Centrer horizontalement */
+    flex-direction: column; /* Place l'image et le titre verticalement */
+    justify-content: flex-start; /* Commence à partir du haut */
+    align-items: center; /* Centre horizontalement */
     z-index: 1000;
     padding: 20px;
-   
     box-sizing: border-box;
     background-color:white;
 }
@@ -435,19 +390,17 @@ h2 {
 /* Styles pour les boutons de la lightbox */
 .lightbox-close, .lightbox-prev, .lightbox-next {
     background: none; /* Pas de fond */
-    border: none; /* Enlever la bordure */
+    border: none; /* Enleve la bordure */
     color: #fff; /* Couleur du texte */
     font-size: 22px; /* Taille du texte */
     cursor: pointer; /* Curseur pointeur */
     margin: 0 10px; /* Espacement horizontal */
 }
 
-
 .lightbox.hidden {
     visibility: hidden;
     opacity: 0;
 }
-
 
 /* Boutons de la lightbox */
 .lightbox-close,
@@ -463,8 +416,7 @@ h2 {
 
 .lightbox-close {
     bottom: 610px;
-    right: 400px;
-    
+    right: 400px;  
 }
 
 .lightbox-prev {
@@ -484,12 +436,8 @@ h2 {
 .lightbox-video {
     width: 600px; 
     height: 600px; 
-    object-fit: cover; /* Conserver les proportions de l'image */
-    
-
+    object-fit: cover; /* Conserve les proportions de l'image */
 }
-
-
 
 /* Styles pour le titre dans la lightbox */
 .lightbox-title {
@@ -498,18 +446,14 @@ h2 {
     text-align: left;
     margin: 0;
     width: 100%;
-    padding-left: 850px;
-      
+    padding-left: 850px;    
 }
   
-
 .lightbox-video {
     display: none;
 }
 
-
 /* Styles pour le conteneur des likes */
-
 .likes-container {
     display: flex;
     justify-content: flex-end;
@@ -546,7 +490,6 @@ h2 {
 }
 
 /* Styles de base pour le conteneur des likes totaux */
-
 .total-likes-title {
     color: #000000;
     opacity: 0;
@@ -563,8 +506,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content:center;
-    gap: 10px;
-    
+    gap: 10px;  
 }
 
 .total-likes {

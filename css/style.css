@@ -3,12 +3,9 @@
 
 :focus {
     outline: 2px solid black; /* Modifie l'épaisseur et la couleur de la bordure */
-    outline-offset:  25px; /* Ajoute un espace autour de la bordure */
-    
-    
-  }
-  
-  
+    outline-offset:  25px; /* Ajoute un espace autour de la bordure */   
+}
+   
 /* Styles de base pour le corps de la page */
 body {
     font-family: "DM Sans", sans-serif;
@@ -33,7 +30,7 @@ body {
     box-sizing: border-box; /* Gère le padding correctement */
 }
 
-/* Limiter la largeur du contenu */
+/* Limite la largeur du contenu */
 main {
     width: 100%;
     max-width: 1440px; /* Largeur maximale sur les grands écrans */
@@ -73,7 +70,7 @@ header {
     width: 100%;
     background-color: #f5f5f5; /* Couleur de fond de l'en-tête */
     padding: 10px; /* Espacement interne */
-    text-align: center; /* Centrer le texte */
+    text-align: center; /* Centre le texte */
 }
 
 /* Styles pour le titre principal */
@@ -82,14 +79,12 @@ h1 {
     font-size: 2em;
     margin: 20px 100px;
     height: auto;    
-    }
-
+}
 
 /* Styles pour le logo */
 .logo {
-
-    width: 150px; /* Limiter la taille du logo */
-    height: auto; /* Conserver les proportions du logo */
+    width: 150px; /* Limite la taille du logo */
+    height: auto; /* Conserve les proportions du logo */
     margin-left: 80px;
 }
 
@@ -102,8 +97,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
-    width: 100%;
-   
+    width: 100%;  
 }
 
 .photographer_section article {
@@ -137,9 +131,9 @@ td {
     font-size: 12px;
     font-weight: 400;
     text-align: center; /* Centre le texte à l'intérieur du td */
-    padding: 0; /* Supprimer les marges internes si nécessaire */
+    padding: 0; /* Supprime les marges internes si nécessaire */
     position: relative;
-    left: 0; /* Supprimer le décalage gauche */
+    left: 0; /* Supprime le décalage gauche */
 }
 
 /* Styles pour les éléments span */
@@ -161,21 +155,21 @@ span {
 /* Media Queries pour les petits écrans */
 @media (max-width: 768px) {
     td {
-        font-size: 10px; /* Réduire la taille de la police pour les petits écrans */
+        font-size: 10px; /* Réduit la taille de la police pour les petits écrans */
     }
 
     span {
-        font-size: 12px; /* Réduire la taille de la police pour les petits écrans */
+        font-size: 12px; /* Réduit la taille de la police pour les petits écrans */
     }
 }
 
 @media (max-width: 480px) {
     td {
-        font-size: 8px; /* Réduire encore plus la taille de la police pour les très petits écrans */
+        font-size: 8px; /* Réduit encore plus la taille de la police pour les très petits écrans */
     }
 
     span {
-        font-size: 10px; /* Réduire encore plus la taille de la police pour les très petits écrans */
+        font-size: 10px; /* Réduit encore plus la taille de la police pour les très petits écrans */
     }
 }
 
@@ -212,7 +206,7 @@ span {
 
 /* Styles pour les labels */
 label {
-    display: block; /* Forcer le label à occuper une ligne entière */
+    display: block; /* Force le label à occuper une ligne entière */
     margin-bottom: 8px; /* Espacement sous le label */
     color: #333; /* Couleur du texte des labels */
 }
