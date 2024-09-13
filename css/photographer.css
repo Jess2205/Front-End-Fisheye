@@ -385,6 +385,11 @@ h2 {
     box-sizing: border-box;
 }
 
+.lightbox.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
 /* Styles pour les boutons de la lightbox */
 .lightbox-close, .lightbox-prev, .lightbox-next {
     position: absolute; /* Positionne les boutons */
