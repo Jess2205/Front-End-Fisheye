@@ -36,13 +36,13 @@ h1 {
 
 /* Styles pour la section principale */
 main {
-    width: 1400px;
+    width: 1440px;
 }
 
 /* Styles pour les images */
 img {
-    width: 350px;
-    height: 300px;
+    width: 650px;
+    height: 620px;
 }
 
 /* Styles pour l'en-tête du photographe */
@@ -376,81 +376,71 @@ h2 {
     left: 0;
     width: 100%; /* Prendre toute la largeur de l'écran */
     height: 100%; /* Prendre toute la hauteur de l'écran */
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    background: white;
     display: flex;
     flex-direction: column; /* Place l'image et le titre verticalement */
-    justify-content: flex-start; /* Commence à partir du haut */
+    justify-content: center; /* Centre verticalement */
     align-items: center; /* Centre horizontalement */
     z-index: 1000;
-    padding: 20px;
     box-sizing: border-box;
-    background-color:white;
 }
 
 /* Styles pour les boutons de la lightbox */
 .lightbox-close, .lightbox-prev, .lightbox-next {
+    position: absolute; /* Positionne les boutons */
     background: none; /* Pas de fond */
-    border: none; /* Enleve la bordure */
-    color: #fff; /* Couleur du texte */
-    font-size: 22px; /* Taille du texte */
+    border: none; /* Enlève la bordure */
+    color:  #901C1C; /* Couleur du texte */
+    font-size: 48px; /* Taille du texte */
     cursor: pointer; /* Curseur pointeur */
-    margin: 0 10px; /* Espacement horizontal */
-}
-
-.lightbox.hidden {
-    visibility: hidden;
-    opacity: 0;
+    margin: 0; /* Réinitialise les marges */
 }
 
 /* Boutons de la lightbox */
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-    position: absolute;
-    background: none;
-    border: none;
-    color: #901C1C;
-    font-size: 3em;
-    cursor: pointer;
-}
-
 .lightbox-close {
-    bottom: 610px;
-    right: 400px;  
+    float: right;
+    margin-left: 47%;
+    margin-bottom: 43%;
+  
 }
 
 .lightbox-prev {
-    top: 50%;
-    left: 400px;
-    transform: translateY(-50%);
+    float: left;
+    margin-right: 50%;
+    transform: translateY(-50%); /* Centre verticalement */
 }
 
 .lightbox-next {
-    right: 400px;
-    top: 50%;
-    transform: translateY(-50%);
+    float: right;
+    margin-left: 50%; 
+    transform: translateY(-50%); /* Centre verticalement */
 }
 
 /* Styles pour les images et vidéos dans la lightbox */
 .lightbox-image, 
 .lightbox-video {
-    width: 600px; 
-    height: 600px; 
+    max-width: 100%; /* Prend toute la largeur disponible */
+    max-height: 90%; /* Limite la hauteur à 80% de la hauteur de la fenêtre */
     object-fit: cover; /* Conserve les proportions de l'image */
 }
+
+
 
 /* Styles pour le titre dans la lightbox */
 .lightbox-title {
     color: #901C1C;
     font-size: 22px;
-    text-align: left;
-    margin: 0;
+    text-align: left; /* Centre le titre */
     width: 100%;
-    padding-left: 850px;    
+    margin-left: 56%;
 }
-  
+
+
+/* Styles pour la vidéo */
 .lightbox-video {
-    display: none;
+    display: none; /* Masque les vidéos par défaut */
+    width: 45%;
+    height: 90%;
 }
 
 /* Styles pour le conteneur des likes */
