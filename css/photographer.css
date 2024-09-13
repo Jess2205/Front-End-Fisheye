@@ -1,9 +1,11 @@
+
 /* Styles de base pour le corps de la page */
 body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%; /* Utilise la largeur totale de l'écran */
+    max-width: 2000px; /* Utilise la largeur totale de l'écran */
+   
 }
 
 /* Styles pour l'en-tête */
@@ -36,8 +38,7 @@ h1 {
 
 /* Styles pour la section principale */
 main {
-    padding: 2rem;
-    padding-top: 0;
+    width: 1400px;
 }
 
 /* Styles pour les images */
@@ -261,7 +262,6 @@ a {
     width: 320px;
     height: 280px;
     object-fit: cover;
-   
 }
 
 .media img,
@@ -381,55 +381,56 @@ h2 {
 
 /* Styles pour le bouton de fermeture de la modale */
 .closeModal {
-    width: 2%;
-    height: 4%;
-    position: fixed;
-    top:7%;
-    left: 60%;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    float:right;
+    margin-bottom: 55px;
+   
+   
     background-color: transparent;
     border: none;
-    
+    z-index: 1000; /* Assurez-vous qu'il est au-dessus de la modale */
 }
 
+/* Ajustement pour les grands écrans */
+@media (min-width: 1440px) {
+    .closeModal {
+        top: 20px; /* Ajuster si nécessaire */
+        right: 20px; /* Ajuster si nécessaire */
+    }
+}
+
+/* Ajustement pour les écrans moyens (1440px à 768px) */
+@media (max-width: 1440px) and (min-width: 768px) {
+    .closeModal {
+        top: 15px; /* Ajuster la position du haut */
+        right: 15px; /* Ajuster la position de la droite */
+    }
+}
+
+
 .closeModal img {
-    width: 24px;
-    height: 24px;
-    position: fixed;
-    top:7%;
-   
-    
+    width: 24px; /* Taille de l'image */
+    height: 24px; /* Taille de l'image */
 }
 
 /* Styles pour la lightbox */
 /* Styles pour la lightbox */
 .lightbox {
-    position: fixed; /* Positionner en fixe */
-    top: 50%; /* Aligner en haut */
-    left: 50%; /* Aligner à gauche */
-    width: 1342px; /* Largeur complète */
-    height: 900px; /* Hauteur complète */
+    position: fixed; /* Fixer la lightbox à l'écran */
+    top: 0;
+    left: 0;
+    width: 100%; /* Prendre toute la largeur de l'écran */
+    height: 100%; /* Prendre toute la hauteur de l'écran */
     background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    display: flex; /* Affichage flex pour centrer la lightbox */
-    justify-content: center; /* Centrer horizontalement */
-    align-items: center; /* Centrer verticalement */
-    z-index: 1000; /* Positionner au-dessus des autres éléments */
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: white;
-    flex-direction: column;
-    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Placer l'image et le titre verticalement */
+    justify-content: flex-start; /* Commencer à partir du haut */
+    align-items: center; /* Centrer horizontalement */
+    z-index: 1000;
+    padding: 20px;
+   
+    box-sizing: border-box;
+    background-color:white;
 }
-
-
-
 
 /* Styles pour les boutons de la lightbox */
 .lightbox-close, .lightbox-prev, .lightbox-next {
@@ -456,24 +457,24 @@ h2 {
     background: none;
     border: none;
     color: #901C1C;
-    font-size: 2.5em;
+    font-size: 3em;
     cursor: pointer;
 }
 
 .lightbox-close {
-    bottom: 670px;
-    right: 380px;
+    bottom: 610px;
+    right: 400px;
     
 }
 
 .lightbox-prev {
     top: 50%;
-    left: 300px;
+    left: 400px;
     transform: translateY(-50%);
 }
 
 .lightbox-next {
-    right: 300px;
+    right: 400px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -481,29 +482,24 @@ h2 {
 /* Styles pour les images et vidéos dans la lightbox */
 .lightbox-image, 
 .lightbox-video {
-    width: 500px; /* Largeur maximale pour prendre presque tout l'écran */
-    height: 500px; /* Hauteur maximale ajustée */
-    object-fit:cover;
-    margin: 0 auto; /* Centrer */
-    display: block;
-   
+    width: 600px; 
+    height: 600px; 
+    object-fit: cover; /* Conserver les proportions de l'image */
     
+
 }
+
 
 
 /* Styles pour le titre dans la lightbox */
 .lightbox-title {
-    color: #901C1C; /* Couleur du texte */
-    text-align: left; /* Aligner à gauche */
-    width: 95%; /* Largeur ajustée pour s'aligner avec l'image/vidéo */
-    margin-top: 10px; /* Espacement au-dessus du titre */
-    font-size: 18px; /* Taille du texte */
-    padding-left: 5px; /* Un peu d'espace pour le texte à gauche */
-    align-self: flex-start; /* Aligne le titre à gauche en dessous de l'image/vidéo */
-    position: fixed;
-    z-index: 1000;
-    top: 77%;
-    left: 31%; 
+    color: #901C1C;
+    font-size: 22px;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    padding-left: 850px;
+      
 }
   
 
@@ -581,3 +577,4 @@ h2 {
     font-size: 16px;
     color: #000000;
 }
+

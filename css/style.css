@@ -20,6 +20,49 @@ body {
     justify-content: center;
 }
 
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh; /* Prend la hauteur de l'écran */
+    box-sizing: border-box; /* Gère le padding correctement */
+}
+
+/* Limiter la largeur du contenu */
+main {
+    width: 100%;
+    max-width: 1440px; /* Largeur maximale sur les grands écrans */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Media queries pour ajuster selon la taille de l'écran */
+@media (max-width: 1200px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+
 /* Styles pour l'en-tête */
 header {
     display: flex;
@@ -75,41 +118,67 @@ h1 {
 .text-container {
     height: 38px;
     line-height: 1;
-    
-}
-
-.text-container .img-title-container a {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement si nécessaire */
 }
 
 /* Styles pour les paragraphes dans les articles */
 p {
     font-size: 16px;
     margin: 0;
-    color:  #333;
+    color: #333;
+    text-align: center; /* Centre le texte dans le paragraphe */
 }
 
+/* Styles pour le prix */
 td {
     font-size: 12px;
     font-weight: 400;
-    margin: 0;
-   padding-left: 180px;
-    
+    text-align: center; /* Centre le texte à l'intérieur du td */
+    padding: 0; /* Supprimer les marges internes si nécessaire */
+    position: relative;
+    left: 0; /* Supprimer le décalage gauche */
 }
 
+/* Styles pour les éléments span */
 span {
     font-size: 14px;
     font-weight: 400;
-    
 }
+
 /* Styles pour le conteneur de l'image et du titre */
 .img-title-container {
     height: 300px;
     width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    justify-content: center; /* Centre le contenu verticalement */
 }
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 768px) {
+    td {
+        font-size: 10px; /* Réduire la taille de la police pour les petits écrans */
+    }
+
+    span {
+        font-size: 12px; /* Réduire la taille de la police pour les petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    td {
+        font-size: 8px; /* Réduire encore plus la taille de la police pour les très petits écrans */
+    }
+
+    span {
+        font-size: 10px; /* Réduire encore plus la taille de la police pour les très petits écrans */
+    }
+}
+
 
 /* Styles pour les titres des articles */
 .photographer_section article h2 {
