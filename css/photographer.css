@@ -179,7 +179,7 @@ a {
     appearance: none;          /* Masque la flèche par défaut pour les autres navigateurs */
     
     /* Ajout de la flèche montante personnalisée */
-    background: url('/assets/icons/fleche-vers-le-haut.png') no-repeat right center;
+    background: url('../assets/icons/fleche-vers-le-haut.png') no-repeat right center;
     background-size: 1em;
     padding-right: 2em; /* Espace pour la flèche */
     
